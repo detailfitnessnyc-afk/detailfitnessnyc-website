@@ -1,122 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Detail Fitness NYC</title>
+  <!-- (Line 1-7) Page setup -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Fitness NYC</title>
 
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  background-color: #111;
-  color: #fff;
-}
+  <style>
+    /* (Line ~10) Safety + Base */
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111;
+      color: #fff;
+      overflow-x: hidden; /* prevents weird left/right shifts */
+    }
 
-header {
-  background: #000;
-  text-align: center;
-  padding: 20px;
-}
+    /* (Line ~23) Header */
+    header{
+      background:#000;
+      text-align:center;
+      padding:22px 18px;
+      border-bottom:1px solid #222;
+    }
+    .logo{
+      width:90%;
+      max-width:720px;
+      height:auto;
+      display:block;
+      margin:0 auto;
+    }
 
-.logo {
-  width: 90%;
-  max-width: 720px;
-}
+    /* (Line ~38) Main container (centers everything) */
+    .section{
+      padding:34px 18px;
+      max-width:900px;
+      margin:0 auto;  /* centers content */
+    }
 
-.section {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: auto;
-}
+    /* (Line ~46) Images */
+    .hero-image{
+      width:92%;
+      max-width:720px;
+      height:auto;
+      display:block;
+      margin:18px auto 26px auto;
+      border-radius:14px;
+      box-shadow:0 18px 45px rgba(0,0,0,.6);
+    }
 
-.card {
-  background: #1b1b1b;
-  padding: 25px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: 1px solid #333;
-}
+    /* (Line ~58) Cards */
+    .card{
+      background:#1b1b1b;
+      padding:22px;
+      margin:0 auto 18px auto;
+      border-radius:10px;
+      border:1px solid #333;
+    }
 
-.hero-image {
-  width: 100%;
-  max-width: 720px;
-  height: auto;
-  display: block;
-  margin: 20px auto 30px auto;
-  border-radius: 14px;
-  box-shadow: 0 18px 45px rgba(0,0,0,.6);
-}
+    h2{ margin:0 0 10px 0; }
+    p{ line-height:1.55; margin: 0; }
 
-.button {
-  background: #c8a96a;
-  color: #000;
-  padding: 12px 18px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 15px;
-}
+    /* (Line ~72) Lists (fixes spacing/alignment) */
+    ul{
+      margin: 10px 0 0 0;
+      padding-left: 18px;
+      line-height: 1.6;
+    }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
-  margin-top: 40px;
-}
-</style>
+    /* (Line ~80) Buttons */
+    .button{
+      background:#c8a96a;
+      color:#000;
+      padding:12px 18px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+      display:inline-block;
+      margin-top:12px;
+    }
+    .button:active { transform: translateY(1px); }
+
+    /* (Line ~92) Footer */
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#000;
+      border-top:1px solid #222;
+      margin-top:30px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <img src="logo-rectangular.png" alt="Detail Fitness NYC" class="logo">
-</header>
+  <!-- (Line ~106) HEADER -->
+  <header>
+    <img src="logo-rectangular.png"
+         alt="Detail Fitness NYC"
+         class="logo"
+         loading="eager"
+         decoding="async">
+  </header>
 
-<div class="section">
+  <!-- (Line ~115) MAIN -->
+  <div class="section">
 
-  <img src="client-training.jpg" alt="Private Personal Training Session" class="hero-image">
+    <!-- (Line ~118) HERO IMAGE -->
+    <img src="founder-hero.jpg"
+         alt="Detail Fitness Founder"
+         class="hero-image"
+         loading="lazy"
+         decoding="async">
 
-  <div class="card">
-    <h2>About</h2>
-    <p>
-      Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of corporate and private training experience.
-      His philosophy is simple: movement is medicine. Every program is structured, detailed, and results-driven.
-    </p>
+    <!-- (Line ~125) ABOUT -->
+    <div class="card">
+      <h2>About</h2>
+      <p>
+        Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of corporate and private training experience.
+        His philosophy is simple: movement is medicine — built on proper technique, structured programming, and sustainable results.
+      </p>
+    </div>
+
+    <!-- (Line ~137) CLIENT TRAINING IMAGE -->
+    <img src="client-training.jpg"
+         alt="Private Personal Training Session"
+         class="hero-image"
+         loading="lazy"
+         decoding="async">
+
+    <!-- (Line ~145) FOUNDER CARD IMAGE -->
+    <img src="founder-card.jpg"
+         alt="Detail Fitness Founder Card"
+         class="hero-image"
+         loading="lazy"
+         decoding="async">
+
+    <!-- (Line ~153) SERVICES -->
+    <div class="card">
+      <h2>Services</h2>
+      <ul>
+        <li>In-Home Personal Training</li>
+        <li>Luxury Building Gym Training</li>
+        <li>12-Week Body Transformation Programs</li>
+        <li>Strength & Movement Coaching</li>
+        <li>Nutrition Guidance</li>
+      </ul>
+    </div>
+
+    <!-- (Line ~167) STRIPE -->
+    <div class="card">
+      <h2>Book Your Executive Assessment</h2>
+      <a class="button"
+         href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
+         target="_blank"
+         rel="noopener noreferrer">
+        Book Executive Assessment — $200
+      </a>
+    </div>
+
+    <!-- (Line ~181) CALENDAR -->
+    <div class="card">
+      <h2>Book a Consultation</h2>
+      <p>Ready to get started? Schedule your consultation today.</p>
+      <a class="button"
+         href="https://calendar.app.google/FqDkkVB9s8dt6u1d6"
+         target="_blank"
+         rel="noopener noreferrer">
+        Schedule Consultation Call
+      </a>
+    </div>
+
   </div>
 
-  <div class="card">
-    <h2>Services</h2>
-    <ul>
-      <li>In-Home Personal Training</li>
-      <li>Luxury Building Gym Training</li>
-      <li>12-Week Body Transformation Programs</li>
-      <li>Strength & Movement Coaching</li>
-      <li>Nutrition Guidance</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Book Your Executive Assessment</h2>
-    <a class="button" href=https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02 target="_blank" rel="noopener noreferrer">
-      Book Executive Assessment — $200
-    </a>
-  </div>
-
-  <div class="card">
-    <h2>Book a Consultation</h2>
-    <p>Ready to get started? Schedule your consultation today.</p>
-    <a class="button" href=https://calendar.app.google/AEjvMAF7mDsBP8RK9
-      Schedule Consultation Call
-    </a>
-  </div>
-
-</div>
-
-<footer>
-  © 2026 Detail Fitness NYC — Private Coaching Across NYC
-</footer>
+  <!-- (Line ~199) FOOTER -->
+  <footer>
+    © 2026 Detail Fitness NYC — Private Coaching Across NYC
+  </footer>
 
 </body>
 </html>
