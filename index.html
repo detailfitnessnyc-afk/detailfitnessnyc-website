@@ -6,277 +6,205 @@
 <title>Detail Fitness NYC</title>
 
 <style>
-
-* { box-sizing:border-box; }
+* { box-sizing: border-box; }
 
 body{
-font-family:Arial, Helvetica, sans-serif;
-margin:0;
-background:#111;
-color:#fff;
-overflow-x:hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  margin:0;
+  background:#111;
+  color:#fff;
+  overflow-x:hidden;
 }
 
+/* ✅ Soft gold fade behind the logo */
 header{
-background:#000;
-text-align:center;
-padding:40px 20px 28px;
-border-bottom:1px solid #222;
+  text-align:center;
+  padding:44px 20px 30px;
+  border-bottom:1px solid #222;
+
+  background:
+    radial-gradient(circle at 50% 35%, rgba(200,169,106,0.28), rgba(0,0,0,0) 55%),
+    linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.9));
 }
 
 .logo{
-width:90%;
-max-width:720px;
-height:auto;
-display:block;
-margin:0 auto;
+  width:90%;
+  max-width:720px;
+  height:auto;
+  display:block;
+  margin:0 auto;
 }
 
 .section{
-padding:40px 20px;
-max-width:900px;
-margin:0 auto;
+  padding:34px 20px 40px;
+  max-width:900px;
+  margin:0 auto;
 }
 
-/* IMAGE STYLE */
+/* ✅ Founder photo style */
+.founder-image{
+  width:92%;
+  max-width:520px;
+  height:auto;
+  display:block;
+  margin:18px auto 22px;
+
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 18px 45px rgba(0,0,0,.55);
+}
+
+/* Client-training image style */
 .hero-image{
-
-width:92%;
-max-width:720px;
-height:auto;
-
-display:block;
-
-margin:18px auto 26px;
-
-border-radius:18px;
-
-box-shadow:0 18px 45px rgba(0,0,0,.55);
-
+  width:92%;
+  max-width:720px;
+  height:auto;
+  display:block;
+  margin:18px auto 26px;
+  border-radius:18px;
+  box-shadow:0 18px 45px rgba(0,0,0,.55);
 }
 
 .card{
-
-background:#1b1b1b;
-
-padding:25px;
-
-margin:0 0 20px 0;
-
-border-radius:14px;
-
-border:1px solid #333;
-
-box-shadow:0 12px 40px rgba(0,0,0,.45);
-
+  background:#1b1b1b;
+  padding:25px;
+  margin:0 0 20px 0;
+  border-radius:14px;
+  border:1px solid #333;
+  box-shadow:0 12px 40px rgba(0,0,0,.45);
 }
 
 h2{
-
-margin:0 0 12px 0;
-
-font-size:30px;
-
+  margin:0 0 12px 0;
+  font-size:30px;
 }
 
 p{
-
-margin:0 0 12px 0;
-
-line-height:1.55;
-
-color:#e8e8e8;
-
-font-size:18px;
-
+  margin:0 0 12px 0;
+  line-height:1.55;
+  color:#e8e8e8;
+  font-size:18px;
 }
 
 ul{
-
-margin:10px 0 0 22px;
-
-padding:0;
-
-color:#e8e8e8;
-
-font-size:18px;
-
-line-height:1.55;
-
+  margin:10px 0 0 22px;
+  padding:0;
+  color:#e8e8e8;
+  font-size:18px;
+  line-height:1.55;
 }
 
-.card-cta{
+.card-cta{ text-align:center; }
 
-text-align:center;
-
-}
-
+/* ✅ Executive button hover animation */
 .button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 
-display:inline-flex;
+  width:100%;
+  max-width:520px;
 
-align-items:center;
+  background:#c8a96a;
+  color:#000;
 
-justify-content:center;
+  padding:16px 18px;
+  border-radius:12px;
 
-width:100%;
+  text-decoration:none;
+  font-weight:800;
+  font-size:18px;
+  line-height:1;
 
-max-width:520px;
+  margin:14px auto 0;
 
-background:#c8a96a;
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
 
-color:#000;
+.button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(200,169,106,0.25), 0 10px 30px rgba(0,0,0,0.55);
+  filter: brightness(1.03);
+}
 
-padding:16px 18px;
-
-border-radius:12px;
-
-text-decoration:none;
-
-font-weight:800;
-
-font-size:18px;
-
-line-height:1;
-
-margin:14px auto 0;
-
+.button:active{
+  transform: translateY(0px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.55);
 }
 
 footer{
-
-text-align:center;
-
-padding:22px 16px;
-
-color:#aaa;
-
-font-size:14px;
-
+  text-align:center;
+  padding:22px 16px;
+  color:#aaa;
+  font-size:14px;
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-<img class="logo"
-src="logo-rectangular.png"
-alt="Detail Fitness NYC Logo"/>
-
+  <img class="logo" src="logo-rectangular.png" alt="Detail Fitness NYC Logo" />
 </header>
 
 <div class="section">
 
-<!-- ABOUT -->
+  <!-- ✅ CEO/Founder photo ABOVE About -->
+  <img class="founder-image" src="founder.jpg" alt="Terrence Powell — Founder" />
 
-<div class="card">
+  <div class="card">
+    <h2>About</h2>
+    <p>
+      Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of corporate and private training experience.
+    </p>
+    <p>
+      His philosophy is simple: movement is medicine — built on proper technique, structured programming, and sustainable results.
+    </p>
+    <p>
+      Supportive, detail-oriented coaching for busy professionals who want real progress without wasting time.
+    </p>
+  </div>
 
-<h2>About</h2>
+  <!-- ✅ Client-training image stays between About and Services -->
+  <img class="hero-image" src="client-training.jpg" alt="Client training session" />
 
-<p>
-Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of corporate and private training experience.
-</p>
+  <div class="card">
+    <h2>Services</h2>
+    <ul>
+      <li>In-Home Personal Training</li>
+      <li>Luxury Building Gym Training</li>
+      <li>12-Week Body Transformation</li>
+      <li>Strength &amp; Muscle Building</li>
+      <li>Nutrition Guidance</li>
+    </ul>
+  </div>
 
-<p>
-His philosophy is simple: movement is medicine — built on proper technique, structured programming, and sustainable results.
-</p>
+  <div class="card card-cta">
+    <h2>Book Your Executive Assessment</h2>
+    <a class="button"
+       href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
+       target="_blank"
+       rel="noopener noreferrer">
+      Book Executive Assessment — $200
+    </a>
+  </div>
 
-<p>
-Supportive, detail-oriented coaching for busy professionals who want real progress without wasting time.
-</p>
-
-</div>
-
-
-<!-- ✅ IMAGE MOVED HERE (Between About + Services) -->
-
-<img
-class="hero-image"
-src="client-training.jpg"
-alt="Client training session"
-/>
-
-
-<!-- SERVICES -->
-
-<div class="card">
-
-<h2>Services</h2>
-
-<ul>
-
-<li>In-Home Personal Training</li>
-
-<li>Luxury Building Gym Training</li>
-
-<li>12-Week Body Transformation</li>
-
-<li>Strength &amp; Muscle Building</li>
-
-<li>Nutrition Guidance</li>
-
-</ul>
-
-</div>
-
-
-<div class="card card-cta">
-
-<h2>Book Your Executive Assessment</h2>
-
-<a
-class="button"
-
-href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
-
-target="_blank"
-
-rel="noopener noreferrer">
-
-Book Executive Assessment — $200
-
-</a>
-
-</div>
-
-
-<div class="card card-cta">
-
-<h2>Book a Consultation</h2>
-
-<p>
-
-Ready to get started? Schedule your consultation today.
-
-</p>
-
-<a
-
-class="button"
-
-href="https://calendar.app.google/KekusXZFQ85g2djr5"
-
-target="_blank"
-
-rel="noopener noreferrer">
-
-Schedule Consultation Call
-
-</a>
-
-</div>
+  <div class="card card-cta">
+    <h2>Book a Consultation</h2>
+    <p>Ready to get started? Schedule your consultation today.</p>
+    <a class="button"
+       href="https://calendar.app.google/KekusXZFQ85g2djr5"
+       target="_blank"
+       rel="noopener noreferrer">
+      Schedule Consultation Call
+    </a>
+  </div>
 
 </div>
 
 <footer>
-
-© 2026 Detail Fitness NYC
-
+  © 2026 Detail Fitness NYC
 </footer>
 
 </body>
-
 </html>
