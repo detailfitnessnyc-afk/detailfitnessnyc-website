@@ -1,194 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Detail Fitness NYC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Fitness NYC</title>
 
-<style>
-* { box-sizing: border-box; }
+  <style>
+    * { box-sizing: border-box; }
 
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  margin:0;
-  background:#111;
-  color:#fff;
-  overflow-x:hidden;
-}
+    :root{
+      --bg: #0f0f0f;
+      --panel: #171717;
+      --panel2: #141414;
+      --border: rgba(255,255,255,.10);
+      --text: #ffffff;
+      --muted: rgba(255,255,255,.82);
+      --muted2: rgba(255,255,255,.72);
+      --gold: #c8a96a;
+      --shadow: 0 22px 70px rgba(0,0,0,.60);
+    }
 
-/* ✅ Soft gold fade behind the logo */
-header{
-  text-align:center;
-  padding:44px 20px 30px;
-  border-bottom:1px solid #222;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: radial-gradient(1200px 600px at 50% -80px, rgba(200,169,106,.10), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-  background:
-    radial-gradient(circle at 50% 35%, rgba(200,169,106,0.28), rgba(0,0,0,0) 55%),
-    linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.9));
-}
+    header {
+      background: #000;
+      text-align: center;
+      padding: 42px 18px 30px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
 
-.logo{
-  width:90%;
-  max-width:720px;
-  height:auto;
-  display:block;
-  margin:0 auto;
-}
+    .logo {
+      width: 92%;
+      max-width: 720px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 12px 34px rgba(0,0,0,.55));
+    }
 
-.section{
-  padding:34px 20px 40px;
-  max-width:900px;
-  margin:0 auto;
-}
+    /* Main layout container */
+    .section {
+      padding: 46px 18px 30px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
 
-/* Client-training image style */
-.hero-image{
-  width:92%;
-  max-width:720px;
-  height:auto;
-  display:block;
-  margin:18px auto 26px;
-  border-radius:18px;
-  box-shadow:0 18px 45px rgba(0,0,0,.55);
-}
+    /* Luxury card styling */
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      background-color: var(--panel);
+      padding: 30px;
+      margin: 0 0 22px 0;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
 
-.card{
-  background:#1b1b1b;
-  padding:25px;
-  margin:0 0 20px 0;
-  border-radius:14px;
-  border:1px solid #333;
-  box-shadow:0 12px 40px rgba(0,0,0,.45);
-}
+    h2 {
+      margin: 0 0 14px 0;
+      font-size: 34px;
+      letter-spacing: .2px;
+    }
 
-h2{
-  margin:0 0 12px 0;
-  font-size:30px;
-}
+    p {
+      margin: 0 0 12px 0;
+      line-height: 1.65;
+      color: var(--muted);
+      font-size: 18px;
+    }
 
-p{
-  margin:0 0 12px 0;
-  line-height:1.55;
-  color:#e8e8e8;
-  font-size:18px;
-}
+    ul {
+      margin: 10px 0 0 22px;
+      padding: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.65;
+    }
 
-ul{
-  margin:10px 0 0 22px;
-  padding:0;
-  color:#e8e8e8;
-  font-size:18px;
-  line-height:1.55;
-}
+    /* Images */
+    .hero-image {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      display: block;
+      margin: 18px auto 26px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 26px 75px rgba(0,0,0,.65);
+    }
 
-.card-cta{ text-align:center; }
+    /* Make the round logo feel intentional */
+    .logo-round {
+      width: 240px;
+      max-width: 70vw;
+      height: auto;
+      display: block;
+      margin: 10px auto 18px;
+      border-radius: 999px;
+      box-shadow: 0 22px 70px rgba(0,0,0,.60);
+      opacity: .98;
+    }
 
-/* ✅ Executive button hover animation */
-.button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+    .card-image {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 22px 70px rgba(0,0,0,.65);
+    }
 
-  width:100%;
-  max-width:520px;
+    /* CTA cards */
+    .card-cta {
+      text-align: center;
+      padding-top: 34px;
+      padding-bottom: 34px;
+    }
 
-  background:#c8a96a;
-  color:#000;
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-  padding:16px 18px;
-  border-radius:12px;
+      width: 100%;
+      max-width: 560px;
 
-  text-decoration:none;
-  font-weight:800;
-  font-size:18px;
-  line-height:1;
+      background: var(--gold);
+      color: #000;
 
-  margin:14px auto 0;
+      padding: 18px 20px;
+      border-radius: 16px;
 
-  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
-}
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 1;
 
-.button:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(200,169,106,0.25), 0 10px 30px rgba(0,0,0,0.55);
-  filter: brightness(1.03);
-}
+      margin: 16px auto 0;
 
-.button:active{
-  transform: translateY(0px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.55);
-}
+      box-shadow: 0 14px 40px rgba(200,169,106,.20);
+      transform: translateY(0);
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    }
 
-footer{
-  text-align:center;
-  padding:22px 16px;
-  color:#aaa;
-  font-size:14px;
-}
-</style>
+    .button:active {
+      transform: translateY(1px);
+    }
+
+    .button:hover {
+      filter: brightness(1.02);
+      box-shadow: 0 18px 48px rgba(200,169,106,.28);
+    }
+
+    footer {
+      text-align: center;
+      padding: 26px 16px 34px;
+      color: rgba(255,255,255,.62);
+      font-size: 14px;
+      letter-spacing: .2px;
+    }
+
+    /* Mobile polish */
+    @media (max-width: 480px){
+      h2 { font-size: 32px; }
+      .card { padding: 26px; border-radius: 18px; }
+      .section { padding-top: 40px; }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <img class="logo" src="logo-rectangular.png" alt="Detail Fitness NYC Logo" />
-</header>
+  <header>
+    <img class="logo" src="logo-rectangular.png" alt="Detail Fitness NYC" />
+  </header>
 
-<div class="section">
+  <div class="section">
 
-  <div class="card">
-    <h2>About</h2>
-    <p>
-      Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of corporate and private training experience.
-    </p>
-    <p>
-      His philosophy is simple: movement is medicine — built on proper technique, structured programming, and sustainable results.
-    </p>
-    <p>
-      Supportive, detail-oriented coaching for busy professionals who want real progress without wasting time.
-    </p>
+    <!-- Circle logo image -->
+    <img class="logo-round" src="founder-card.jpg" alt="Detail Fitness NYC Logo" />
+
+    <!-- Main hero image -->
+    <img class="hero-image" src="founder-hero.jpg" alt="Detail Fitness NYC Hero" />
+
+    <div class="card">
+      <h2>About</h2>
+      <p>
+        Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of
+        corporate and private training experience across NYC.
+      </p>
+      <p>
+        His philosophy is simple: motion is medicine. Proper technique, strength training, and consistency build lasting results.
+      </p>
+      <p>
+        Supportive, detail-oriented, and results-driven — coaching built for busy professionals.
+      </p>
+    </div>
+
+    <div class="card">
+      <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session" />
+    </div>
+
+    <div class="card">
+      <h2>Services</h2>
+      <ul>
+        <li>In-Home Personal Training</li>
+        <li>Luxury Building Gym Training</li>
+        <li>12-Week Body Transformation Program</li>
+        <li>Strength &amp; Movement Coaching</li>
+        <li>Nutrition Guidance</li>
+      </ul>
+    </div>
+
+    <div class="card card-cta">
+      <h2>Book Your Executive Assessment</h2>
+      <a class="button"
+         href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
+         target="_blank"
+         rel="noopener noreferrer">
+        Book Executive Assessment — $200
+      </a>
+    </div>
+
+    <div class="card card-cta">
+      <h2>Book a Consultation</h2>
+      <p style="color: rgba(255,255,255,.78);">
+        Ready to get started? Schedule your consultation today.
+      </p>
+      <a class="button"
+         href="https://calendar.app.google/FqDkkVB9s8dt6u1d6"
+         target="_blank"
+         rel="noopener noreferrer">
+        Schedule Consultation Call
+      </a>
+    </div>
+
   </div>
 
-  <!-- Client-training image stays between About and Services -->
-  <img class="hero-image" src="client-training.jpg" alt="Client training session" />
-
-  <div class="card">
-    <h2>Services</h2>
-    <ul>
-      <li>In-Home Personal Training</li>
-      <li>Luxury Building Gym Training</li>
-      <li>12-Week Body Transformation</li>
-      <li>Strength &amp; Muscle Building</li>
-      <li>Nutrition Guidance</li>
-    </ul>
-  </div>
-
-  <div class="card card-cta">
-    <h2>Book Your Executive Assessment</h2>
-    <a class="button"
-       href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
-       target="_blank"
-       rel="noopener noreferrer">
-      Book Executive Assessment — $200
-    </a>
-  </div>
-
-  <div class="card card-cta">
-    <h2>Book a Consultation</h2>
-    <p>Ready to get started? Schedule your consultation today.</p>
-    <a class="button"
-       href="https://calendar.app.google/KekusXZFQ85g2djr5"
-       target="_blank"
-       rel="noopener noreferrer">
-      Schedule Consultation Call
-    </a>
-  </div>
-
-</div>
-
-<footer>
-  © 2026 Detail Fitness NYC
-</footer>
+  <footer>
+    © 2026 Detail Fitness NYC — Private Coaching Across NYC
+  </footer>
 
 </body>
 </html>
