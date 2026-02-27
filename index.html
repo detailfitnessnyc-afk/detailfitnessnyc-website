@@ -37,6 +37,17 @@
       margin: 0 auto;
     }
 
+    /* ✅ HERO IMAGE (the photo under the logo) */
+    .hero-image {
+      width: 92%;
+      max-width: 720px;
+      height: auto;
+      display: block;
+      margin: 18px auto 26px;
+      border-radius: 18px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.55);
+    }
+
     .card {
       background: #1b1b1b;
       padding: 25px;
@@ -104,13 +115,13 @@
 
 <body>
   <header>
-    <!-- KEEP YOUR LOGO -->
     <img class="logo" src="logo-rectangular.png" alt="Detail Fitness NYC Logo" />
   </header>
 
   <div class="section">
 
-    <!-- ✅ REMOVED: the 2 images that were above About -->
+    <!-- ✅ PHOTO IS BACK (right under logo, above About) -->
+    <img class="hero-image" src="client-training.jpg" alt="Client training session" />
 
     <div class="card">
       <h2>About</h2>
@@ -125,8 +136,6 @@
         Supportive, detail-oriented coaching for busy professionals who want real progress without wasting time.
       </p>
     </div>
-
-    <!-- ✅ REMOVED: the image card that was above Services -->
 
     <div class="card">
       <h2>Services</h2>
