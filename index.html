@@ -33,47 +33,44 @@
       overflow-x:hidden;
     }
 
-    /* ================= HERO ================= */
+    /* ================= HERO IMAGE ONLY ================= */
     .hero{
       position:relative;
       width:100%;
-      /* Full-screen vibe but not “too far” from About */
-      min-height:72vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
+      /* nice tall hero but still keeps About close */
+      height:56vh;
+      min-height:360px;
+      max-height:560px;
       overflow:hidden;
       background:#000;
     }
 
-    /* Use <img> so iPhone Safari behaves consistently */
     .hero-img{
       position:absolute;
       inset:0;
       width:100%;
       height:100%;
       object-fit:cover;
-      /* slightly higher framing + zoom to remove any white padding in the JPG */
       object-position:50% 35%;
+      /* zoom removes any white margins in the image */
       transform: scale(1.18);
       display:block;
     }
 
-    /* Gradient overlay (luxury) */
+    /* Luxury gradient overlay (NO TEXT here now) */
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
       background:
         linear-gradient(180deg,
-          rgba(0,0,0,.25) 0%,
-          rgba(0,0,0,.55) 55%,
-          rgba(0,0,0,.88) 100%);
+          rgba(0,0,0,.18) 0%,
+          rgba(0,0,0,.35) 55%,
+          rgba(0,0,0,.55) 100%);
       pointer-events:none;
     }
 
-    /* Bottom fade into page (tight) */
+    /* Bottom fade into the page */
     .hero::after{
       content:"";
       position:absolute;
@@ -83,39 +80,9 @@
       pointer-events:none;
     }
 
-    .hero-content{
-      position:relative;
-      width:min(980px, 100%);
-      padding: 22px 18px;
-      padding-top: calc(22px + env(safe-area-inset-top));
-      text-shadow: 0 12px 45px rgba(0,0,0,.78);
-    }
-
-    .hero h1{
-      margin:0 0 12px 0;
-      font-size: clamp(28px, 7vw, 52px);
-      line-height:1.06;
-      letter-spacing:.2px;
-    }
-
-    .hero p{
-      margin:0 auto;
-      max-width: 46ch;
-      font-size: clamp(15px, 4vw, 20px);
-      line-height:1.55;
-      color:var(--muted);
-    }
-
-    .scroll-hint{
-      margin-top: 16px;
-      font-size: 13px;
-      color: rgba(255,255,255,.65);
-      letter-spacing:.2px;
-    }
-
     /* ================= MAIN CONTENT ================= */
     .section{
-      /* bring About closer to the hero */
+      /* This brings the intro + About closer to the hero */
       padding: 10px 18px 44px;
       max-width:980px;
       margin:0 auto;
@@ -128,6 +95,28 @@
       padding: 28px;
       margin: 0 0 18px 0;
       box-shadow: 0 14px 40px rgba(0,0,0,.45);
+    }
+
+    /* Intro card (the text you wanted OUT of the image) */
+    .intro{
+      text-align:center;
+      padding-top: 26px;
+      padding-bottom: 26px;
+    }
+
+    .intro h1{
+      margin:0 0 10px 0;
+      font-size: clamp(28px, 6.8vw, 48px);
+      line-height:1.06;
+      letter-spacing:.2px;
+    }
+
+    .intro p{
+      margin:0 auto 14px auto;
+      max-width: 48ch;
+      font-size: clamp(15px, 3.8vw, 20px);
+      line-height:1.55;
+      color:var(--muted);
     }
 
     h2{
@@ -196,9 +185,8 @@
       font-size: 14px;
     }
 
-    /* Mobile tightening */
     @media (max-width: 420px){
-      .hero{ min-height:64vh; }
+      .hero{ height:52vh; min-height:320px; }
       .section{ padding-top: 8px; }
       .card{ padding: 22px; }
       h2{ font-size: 30px; }
@@ -208,20 +196,29 @@
 
 <body>
 
-  <!-- HERO (Top image replaces the old logo header) -->
+  <!-- HERO IMAGE ONLY (no text overlay anymore) -->
   <header class="hero">
     <!-- ✅ MUST MATCH YOUR FILE NAME EXACTLY -->
     <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training" />
-
-    <div class="hero-content">
-      <h1>Private Executive Training — NYC</h1>
-      <p>Strength. Precision. Results. Coaching built for high-performing professionals.</p>
-      <div class="scroll-hint">Scroll to learn more ↓</div>
-    </div>
   </header>
 
   <!-- MAIN -->
   <main class="section">
+
+    <!-- ✅ INTRO TEXT (MOVED OUT OF THE IMAGE) -->
+    <section class="card intro">
+      <h1>Private Executive Training — NYC</h1>
+      <p>Strength. Precision. Results. Coaching built for high-performing professionals.</p>
+
+      <!-- Optional: put Stripe button here too (fastest conversion) -->
+      <a class="button"
+         href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
+         target="_blank"
+         rel="noopener noreferrer">
+        Book Executive Assessment — $200
+      </a>
+      <div class="subline">Includes assessment + training roadmap (60 minutes).</div>
+    </section>
 
     <!-- ABOUT -->
     <section class="card">
@@ -255,7 +252,7 @@
       </ul>
     </section>
 
-    <!-- STRIPE (button back where it belongs) -->
+    <!-- STRIPE (kept here too—your original section) -->
     <section class="card card-cta">
       <h2>Book Your Executive Assessment</h2>
       <a class="button"
