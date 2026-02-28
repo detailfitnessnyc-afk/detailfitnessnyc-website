@@ -37,7 +37,6 @@
     .hero{
       position:relative;
       width:100%;
-      /* nice tall hero but still keeps About close */
       height:56vh;
       min-height:360px;
       max-height:560px;
@@ -52,12 +51,10 @@
       height:100%;
       object-fit:cover;
       object-position:50% 35%;
-      /* zoom removes any white margins in the image */
       transform: scale(1.18);
       display:block;
     }
 
-    /* Luxury gradient overlay (NO TEXT here now) */
     .hero::before{
       content:"";
       position:absolute;
@@ -70,7 +67,6 @@
       pointer-events:none;
     }
 
-    /* Bottom fade into the page */
     .hero::after{
       content:"";
       position:absolute;
@@ -82,7 +78,6 @@
 
     /* ================= MAIN CONTENT ================= */
     .section{
-      /* This brings the intro + About closer to the hero */
       padding: 10px 18px 44px;
       max-width:980px;
       margin:0 auto;
@@ -97,7 +92,7 @@
       box-shadow: 0 14px 40px rgba(0,0,0,.45);
     }
 
-    /* Intro card (the text you wanted OUT of the image) */
+    /* Intro card (TEXT ONLY — no Stripe button here anymore) */
     .intro{
       text-align:center;
       padding-top: 26px;
@@ -112,11 +107,17 @@
     }
 
     .intro p{
-      margin:0 auto 14px auto;
+      margin:0 auto 0 auto;
       max-width: 48ch;
       font-size: clamp(15px, 3.8vw, 20px);
       line-height:1.55;
       color:var(--muted);
+    }
+
+    .intro .subline{
+      margin-top: 12px;
+      color: var(--muted2);
+      font-size: 14px;
     }
 
     h2{
@@ -196,28 +197,19 @@
 
 <body>
 
-  <!-- HERO IMAGE ONLY (no text overlay anymore) -->
+  <!-- HERO IMAGE ONLY -->
   <header class="hero">
-    <!-- ✅ MUST MATCH YOUR FILE NAME EXACTLY -->
     <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training" />
   </header>
 
   <!-- MAIN -->
   <main class="section">
 
-    <!-- ✅ INTRO TEXT (MOVED OUT OF THE IMAGE) -->
+    <!-- INTRO TEXT (NO BUTTON HERE) -->
     <section class="card intro">
       <h1>Private Executive Training — NYC</h1>
       <p>Strength. Precision. Results. Coaching built for high-performing professionals.</p>
-
-      <!-- Optional: put Stripe button here too (fastest conversion) -->
-      <a class="button"
-         href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
-         target="_blank"
-         rel="noopener noreferrer">
-        Book Executive Assessment — $200
-      </a>
-      <div class="subline">Includes assessment + training roadmap (60 minutes).</div>
+      <div class="subline">Scroll down to book your Executive Assessment or a Consultation.</div>
     </section>
 
     <!-- ABOUT -->
@@ -252,7 +244,7 @@
       </ul>
     </section>
 
-    <!-- STRIPE (kept here too—your original section) -->
+    <!-- STRIPE (ONLY BUTTON NOW) -->
     <section class="card card-cta">
       <h2>Book Your Executive Assessment</h2>
       <a class="button"
