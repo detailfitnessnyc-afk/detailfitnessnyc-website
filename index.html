@@ -4,7 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#070707" />
-  <title>Detail Fitness NYC</title>
+
+  <title>Detail Fitness NYC — Private Executive Training</title>
+  <meta name="description" content="Private executive training across NYC. Strength, corrective exercise, and structured 12-week programming built for busy professionals." />
+  <link rel="canonical" href="https://detailfitnessnyc-afk.github.io/" />
+
+  <!-- ✅ FAVICON (uses your existing file) -->
+  <link rel="icon" href="logo-rectangular.png" type="image/png" />
+
+  <!-- ✅ SOCIAL SHARE PREVIEW (Open Graph / Twitter) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Detail Fitness NYC — Private Executive Training" />
+  <meta property="og:description" content="Strength. Precision. Results. Corrective exercise + structured programming built for high-performing professionals." />
+  <meta property="og:url" content="https://detailfitnessnyc-afk.github.io/" />
+  <!-- Use your hero image as the preview -->
+  <meta property="og:image" content="https://detailfitnessnyc-afk.github.io/detail-fitness-hero.jpg" />
+  <meta property="og:image:alt" content="Detail Fitness NYC Executive Training" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Detail Fitness NYC — Private Executive Training" />
+  <meta name="twitter:description" content="Corrective exercise + joint-friendly strength training + structured 12-week programming for busy NYC professionals." />
+  <meta name="twitter:image" content="https://detailfitnessnyc-afk.github.io/detail-fitness-hero.jpg" />
 
   <style>
     :root{
@@ -54,7 +74,6 @@
       margin-top:0;
     }
 
-    /* Blurred background fill (so "contain" still looks premium) */
     .hero-bg{
       position:absolute;
       inset:-20px;
@@ -67,19 +86,17 @@
       display:block;
     }
 
-    /* Foreground image: show the WHOLE image */
     .hero-img{
       position:absolute;
       inset:0;
       width:100%;
       height:100%;
-      object-fit:contain;      /* ✅ shows the whole image */
-      object-position:center;  /* ✅ centered */
+      object-fit:contain;
+      object-position:center;
       display:block;
-      transform:none;          /* ✅ no zoom cropping */
+      transform:none;
     }
 
-    /* Luxury gradient overlay */
     .hero::before{
       content:"";
       position:absolute;
@@ -92,7 +109,6 @@
       z-index:3;
     }
 
-    /* Bottom fade into the page */
     .hero::after{
       content:"";
       position:absolute;
@@ -103,7 +119,6 @@
       z-index:3;
     }
 
-    /* Keep images under overlays */
     .hero-bg, .hero-img{ z-index:1; }
 
     /* ================= MAIN CONTENT ================= */
@@ -138,7 +153,7 @@
 
     .intro p{
       margin:0 auto 0 auto;
-      max-width: 48ch;
+      max-width: 52ch;
       font-size: clamp(15px, 3.8vw, 20px);
       line-height:1.55;
       color:var(--muted);
@@ -216,6 +231,65 @@
       font-size: 14px;
     }
 
+    /* ✅ NEW: compact “executive” cards */
+    .kicker{
+      display:inline-block;
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.65);
+      margin-bottom:10px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .pill{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:14px;
+      padding:14px;
+      background: rgba(255,255,255,.03);
+    }
+
+    .pill strong{
+      display:block;
+      font-size:16px;
+      margin-bottom:6px;
+    }
+
+    .pill span{
+      color: rgba(255,255,255,.78);
+      font-size:14px;
+      line-height:1.45;
+      display:block;
+    }
+
+    .about-bullets{
+      margin: 12px 0 0 0;
+      padding: 0;
+      list-style:none;
+    }
+
+    .about-bullets li{
+      margin: 10px 0;
+      padding-left: 18px;
+      position: relative;
+      color: var(--muted);
+      font-size:18px;
+      line-height:1.6;
+    }
+
+    .about-bullets li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      color: rgba(200,169,106,.95);
+    }
+
     /* ================= STICKY CTA ================= */
     .sticky-cta{
       position:fixed;
@@ -261,6 +335,10 @@
       color: rgba(255,255,255,.60);
     }
 
+    @media (max-width: 760px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 420px){
       .hero{ height:52vh; min-height:320px; }
       .section{ padding-top: 8px; padding-bottom: 120px; }
@@ -287,28 +365,55 @@
       <div class="subline">Scroll down to book your Executive Assessment or a Consultation.</div>
     </section>
 
-    <!-- ✅ UPDATED ABOUT (polished + more value + your creds) -->
+    <!-- ✅ NEW: HOW IT WORKS -->
+    <section class="card">
+      <span class="kicker">How it works</span>
+      <h2>Simple. Structured. Results-driven.</h2>
+      <div class="grid">
+        <div class="pill">
+          <strong>1) Book</strong>
+          <span>Start with an Executive Assessment.</span>
+        </div>
+        <div class="pill">
+          <strong>2) Assess</strong>
+          <span>Movement quality, goals, and training history.</span>
+        </div>
+        <div class="pill">
+          <strong>3) Execute</strong>
+          <span>Roadmap + next-step plan built for your schedule.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ NEW: WHO IT’S FOR -->
+    <section class="card">
+      <span class="kicker">Ideal for</span>
+      <h2>Busy professionals who want structure.</h2>
+      <ul>
+        <li>You want strength, better posture, and real consistency</li>
+        <li>You’re dealing with tightness/aches and want to train smart</li>
+        <li>You prefer a clear plan over random workouts</li>
+      </ul>
+    </section>
+
+    <!-- ✅ ABOUT (same content, cleaner mobile scan) -->
     <section class="card">
       <h2>About</h2>
       <p>
         Terrence Powell is a NASM Certified Personal Trainer, Precision Nutrition Level 1 Coach, and a Focus Personal Training Institute graduate.
-        He brings over four years of corporate gym experience and over ten years of private training across NYC.
       </p>
-      <p>
-        Training here is built around movement quality first — corrective exercise, joint-friendly strength training, and smart progression —
-        so you move better, feel better, and perform at a higher level.
-      </p>
-      <p>
-        For clients who want a clear system, Terrence delivers a structured 12-week transformation model (Phase 1: Foundation, Phase 2: Strength,
-        Phase 3: Performance) with a plan that fits a busy schedule and produces measurable results.
-      </p>
+
+      <ul class="about-bullets">
+        <li><strong>Experience:</strong> 4+ years corporate gym coaching + 10+ years private training across NYC.</li>
+        <li><strong>Method:</strong> Movement quality first — corrective exercise, joint-friendly strength training, and smart progression.</li>
+        <li><strong>System:</strong> Structured 12-week model (Foundation → Strength → Performance) built for measurable results.</li>
+      </ul>
     </section>
 
     <section class="card">
       <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session" />
     </section>
 
-    <!-- ✅ UPDATED SERVICES -->
     <section class="card">
       <h2>Services</h2>
       <ul>
@@ -321,13 +426,13 @@
       </ul>
     </section>
 
-    <!-- ✅ PRICE REMOVED (button still books) -->
     <section class="card card-cta">
       <h2>Book Your Executive Assessment</h2>
       <a class="button"
          href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
          target="_blank"
-         rel="noopener noreferrer">
+         rel="noopener noreferrer"
+         aria-label="Book Executive Assessment">
         Book Executive Assessment
       </a>
       <div class="subline">Includes assessment + training roadmap (60 minutes).</div>
@@ -339,7 +444,8 @@
       <a class="button"
          href="https://calendar.app.google/FqDkkVB9s8dt6u1d6"
          target="_blank"
-         rel="noopener noreferrer">
+         rel="noopener noreferrer"
+         aria-label="Schedule Consultation Call">
         Schedule Consultation Call
       </a>
     </section>
@@ -350,7 +456,6 @@
     © 2026 Detail Fitness NYC — Private Coaching Across NYC
   </footer>
 
-  <!-- ✅ STICKY CTA (PRICE REMOVED) -->
   <div class="sticky-cta" role="region" aria-label="Book Executive Assessment">
     <div class="wrap">
       <a href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
