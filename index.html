@@ -19,10 +19,10 @@
       --panelTop:rgba(255,255,255,.05);
       --panelBot:rgba(255,255,255,.03);
 
-      /* ✅ HERO FRAMING CONTROLS (this is the fix) */
-      --hero-x: 66%;   /* move view window RIGHT so logo text shows */
-      --hero-y: 44%;   /* slightly up/down adjustment */
-      --hero-zoom: 1.01; /* reduce cropping so "DETAIL FITNESS" fits more */
+      /* ✅ HERO FRAMING CONTROLS */
+      --hero-x: 78%;
+      --hero-y: 44%;
+      --hero-zoom: 1.002;
     }
 
     *{ box-sizing:border-box; }
@@ -60,7 +60,6 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      /* ✅ KEY FIX: shift framing to show full "DETAIL FITNESS" */
       object-position: var(--hero-x) var(--hero-y);
       display:block;
       transform: scale(var(--hero-zoom));
@@ -241,12 +240,12 @@
       color: rgba(255,255,255,.60);
     }
 
-    /* ✅ MOBILE: push framing even more right so logo text isn’t cut */
+    /* ✅ MOBILE */
     @media (max-width: 420px){
       :root{
-        --hero-x: 72%;
-        --hero-y: 42%;
-        --hero-zoom: 1.00;
+        --hero-x: 84%;
+        --hero-y: 43%;
+        --hero-zoom: 1.000;
       }
       .hero{ height:52vh; min-height:320px; }
       .section{ padding-top: 8px; padding-bottom: 120px; }
@@ -255,12 +254,11 @@
       .sticky-cta a{ font-size:17px; }
     }
 
-    /* ✅ SUPER SMALL: (older iPhones / tight screens) */
     @media (max-width: 360px){
       :root{
-        --hero-x: 76%;
-        --hero-y: 42%;
-        --hero-zoom: 1.00;
+        --hero-x: 88%;
+        --hero-y: 43%;
+        --hero-zoom: 1.000;
       }
     }
   </style>
@@ -268,12 +266,10 @@
 
 <body>
 
-  <!-- HERO IMAGE ONLY -->
   <header class="hero">
     <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training" />
   </header>
 
-  <!-- MAIN -->
   <main class="section">
 
     <section class="card intro">
@@ -282,17 +278,20 @@
       <div class="subline">Scroll down to book your Executive Assessment or a Consultation.</div>
     </section>
 
+    <!-- ✅ UPDATED ABOUT (polished + more value + your creds) -->
     <section class="card">
       <h2>About</h2>
       <p>
-        Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of
-        corporate and private training experience across NYC.
+        Terrence Powell is a NASM Certified Personal Trainer, Precision Nutrition Level 1 Coach, and a Focus Personal Training Institute graduate.
+        He brings over four years of corporate gym experience and over ten years of private training across NYC.
       </p>
       <p>
-        His philosophy is simple: motion is medicine. Proper technique, strength training, and consistency build lasting results.
+        Training here is built around movement quality first — corrective exercise, joint-friendly strength training, and smart progression —
+        so you move better, feel better, and perform at a higher level.
       </p>
       <p>
-        Supportive, detail-oriented, and results-driven — coaching built for busy professionals.
+        For clients who want a clear system, Terrence delivers a structured 12-week transformation model (Phase 1: Foundation, Phase 2: Strength,
+        Phase 3: Performance) with a plan that fits a busy schedule and produces measurable results.
       </p>
     </section>
 
@@ -300,24 +299,27 @@
       <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session" />
     </section>
 
+    <!-- ✅ UPDATED SERVICES -->
     <section class="card">
       <h2>Services</h2>
       <ul>
         <li>In-Home Personal Training</li>
-        <li>Luxury Building Gym Training</li>
+        <li>Private Gym Training</li>
+        <li>Corrective Exercise &amp; Mobility (move better, train pain-free)</li>
         <li>12-Week Body Transformation Program</li>
         <li>Strength &amp; Movement Coaching</li>
-        <li>Nutrition Guidance</li>
+        <li>Nutrition Guidance (Precision Nutrition Level 1)</li>
       </ul>
     </section>
 
+    <!-- ✅ PRICE REMOVED (button still books) -->
     <section class="card card-cta">
       <h2>Book Your Executive Assessment</h2>
       <a class="button"
          href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
          target="_blank"
          rel="noopener noreferrer">
-        Book Executive Assessment — $200
+        Book Executive Assessment
       </a>
       <div class="subline">Includes assessment + training roadmap (60 minutes).</div>
     </section>
@@ -339,12 +341,13 @@
     © 2026 Detail Fitness NYC — Private Coaching Across NYC
   </footer>
 
+  <!-- ✅ STICKY CTA (PRICE REMOVED) -->
   <div class="sticky-cta" role="region" aria-label="Book Executive Assessment">
     <div class="wrap">
       <a href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
          target="_blank"
          rel="noopener noreferrer">
-        Book Executive Assessment — $200
+        Book Executive Assessment
       </a>
     </div>
     <span class="hint">Tap to book anytime • Secure Stripe checkout</span>
