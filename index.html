@@ -19,7 +19,7 @@
       --panelTop:rgba(255,255,255,.05);
       --panelBot:rgba(255,255,255,.03);
 
-      /* ✅ HERO FRAMING CONTROLS */
+      /* (kept, but no longer required for contain-mode) */
       --hero-x: 78%;
       --hero-y: 44%;
       --hero-zoom: 1.002;
@@ -42,7 +42,7 @@
       overflow-x:hidden;
     }
 
-    /* ================= HERO IMAGE ONLY ================= */
+    /* ================= HERO IMAGE (FULL IMAGE VISIBLE) ================= */
     .hero{
       position:relative;
       width:100%;
@@ -54,28 +54,45 @@
       margin-top:0;
     }
 
+    /* Blurred background fill (so "contain" still looks premium) */
+    .hero-bg{
+      position:absolute;
+      inset:-20px;
+      width:calc(100% + 40px);
+      height:calc(100% + 40px);
+      object-fit:cover;
+      filter: blur(18px);
+      transform: scale(1.08);
+      opacity:.55;
+      display:block;
+    }
+
+    /* Foreground image: show the WHOLE image */
     .hero-img{
       position:absolute;
       inset:0;
       width:100%;
       height:100%;
-      object-fit:cover;
-      object-position: var(--hero-x) var(--hero-y);
+      object-fit:contain;      /* ✅ shows the whole image */
+      object-position:center;  /* ✅ centered */
       display:block;
-      transform: scale(var(--hero-zoom));
+      transform:none;          /* ✅ no zoom cropping */
     }
 
+    /* Luxury gradient overlay */
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
       background: linear-gradient(180deg,
-        rgba(0,0,0,.08) 0%,
-        rgba(0,0,0,.28) 45%,
-        rgba(0,0,0,.55) 100%);
+        rgba(0,0,0,.10) 0%,
+        rgba(0,0,0,.30) 45%,
+        rgba(0,0,0,.62) 100%);
       pointer-events:none;
+      z-index:3;
     }
 
+    /* Bottom fade into the page */
     .hero::after{
       content:"";
       position:absolute;
@@ -83,7 +100,11 @@
       height:70px;
       background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(7,7,7,1) 100%);
       pointer-events:none;
+      z-index:3;
     }
+
+    /* Keep images under overlays */
+    .hero-bg, .hero-img{ z-index:1; }
 
     /* ================= MAIN CONTENT ================= */
     .section{
@@ -240,33 +261,21 @@
       color: rgba(255,255,255,.60);
     }
 
-    /* ✅ MOBILE */
     @media (max-width: 420px){
-      :root{
-        --hero-x: 84%;
-        --hero-y: 43%;
-        --hero-zoom: 1.000;
-      }
       .hero{ height:52vh; min-height:320px; }
       .section{ padding-top: 8px; padding-bottom: 120px; }
       .card{ padding: 22px; }
       h2{ font-size: 30px; }
       .sticky-cta a{ font-size:17px; }
     }
-
-    @media (max-width: 360px){
-      :root{
-        --hero-x: 88%;
-        --hero-y: 43%;
-        --hero-zoom: 1.000;
-      }
-    }
   </style>
 </head>
 
 <body>
 
+  <!-- ✅ HERO UPDATED (full image visible + blurred background) -->
   <header class="hero">
+    <img class="hero-bg" src="detail-fitness-hero.jpg" alt="" aria-hidden="true" />
     <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training" />
   </header>
 
