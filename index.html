@@ -9,12 +9,14 @@
     :root{
       --gold:#c8a96a;
       --text:#ffffff;
-      --muted:rgba(255,255,255,.86);
+      --muted:rgba(255,255,255,.88);
       --muted2:rgba(255,255,255,.70);
       --border:rgba(255,255,255,.10);
       --shadow:0 18px 55px rgba(0,0,0,.55);
       --bg1:#070707;
       --bg2:#0c0c0c;
+      --panelTop:rgba(255,255,255,.05);
+      --panelBot:rgba(255,255,255,.03);
     }
 
     *{ box-sizing:border-box; }
@@ -29,22 +31,30 @@
       overflow-x:hidden;
     }
 
-    /* ============ HERO ============ */
+    /* ================= HERO ================= */
     .hero{
       position:relative;
       width:100%;
-      /* tighter so About is closer */
-      min-height: 56vh;
+      /* Mobile-safe full height */
+      min-height:100svh;
+      min-height:100vh;
+      overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding: 28px 18px 18px;
+    }
 
-      background-image:url("detail-fitness-hero.jpg");
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
+    /* The actual hero image (more reliable than background-image on iPhone Safari) */
+    .hero-img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+      transform: scale(1.02);
     }
 
     /* Gradient overlay */
@@ -54,9 +64,10 @@
       inset:0;
       background:
         linear-gradient(180deg,
-          rgba(0,0,0,.30) 0%,
+          rgba(0,0,0,.35) 0%,
           rgba(0,0,0,.60) 55%,
-          rgba(0,0,0,.90) 100%);
+          rgba(0,0,0,.88) 100%);
+      pointer-events:none;
     }
 
     /* Bottom fade into page */
@@ -64,23 +75,25 @@
       content:"";
       position:absolute;
       left:0; right:0; bottom:-1px;
-      height:70px;
+      height:110px;
       background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(7,7,7,1) 100%);
       pointer-events:none;
     }
 
     .hero-content{
       position:relative;
-      max-width: 920px;
-      width:100%;
+      width:min(980px, 100%);
+      padding: 0 18px;
+      /* safe-area top padding for iPhone notch */
+      padding-top: env(safe-area-inset-top);
     }
 
     .hero h1{
-      margin:0 0 10px 0;
-      font-size: clamp(28px, 7vw, 46px);
-      line-height:1.08;
+      margin:0 0 12px 0;
+      font-size: clamp(30px, 7vw, 52px);
+      line-height:1.05;
       letter-spacing:.2px;
-      text-shadow: 0 10px 40px rgba(0,0,0,.75);
+      text-shadow: 0 12px 45px rgba(0,0,0,.78);
     }
 
     .hero p{
@@ -89,18 +102,27 @@
       font-size: clamp(15px, 4vw, 20px);
       line-height:1.55;
       color:var(--muted);
-      text-shadow: 0 10px 35px rgba(0,0,0,.75);
+      text-shadow: 0 12px 40px rgba(0,0,0,.78);
     }
 
-    /* ============ MAIN CONTENT ============ */
+    /* Optional subtle scroll hint */
+    .scroll-hint{
+      margin-top: 18px;
+      font-size: 13px;
+      color: rgba(255,255,255,.65);
+      letter-spacing: .2px;
+    }
+
+    /* ================= MAIN CONTENT ================= */
     .section{
-      padding: 10px 18px 44px; /* brings About closer */
+      /* Bring About closer to hero */
+      padding: 12px 18px 44px;
       max-width:980px;
       margin:0 auto;
     }
 
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      background: linear-gradient(180deg, var(--panelTop), var(--panelBot));
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 28px;
@@ -108,13 +130,10 @@
       box-shadow: 0 14px 40px rgba(0,0,0,.45);
     }
 
-    .card-cta{
-      text-align:center;
-    }
-
     h2{
       margin:0 0 12px 0;
       font-size: 34px;
+      letter-spacing:.2px;
     }
 
     p{
@@ -142,6 +161,10 @@
       box-shadow: var(--shadow);
     }
 
+    .card-cta{
+      text-align:center;
+    }
+
     .button{
       display:flex;
       align-items:center;
@@ -149,20 +172,23 @@
       width:100%;
       max-width:560px;
       margin:14px auto 0;
+
       background: linear-gradient(180deg,#d7bf86 0%,var(--gold) 100%);
       color:#0b0b0b;
+
       padding:18px 18px;
       border-radius:14px;
       text-decoration:none;
       font-weight:900;
       font-size:18px;
+      line-height:1.1;
       box-shadow: 0 14px 40px rgba(0,0,0,.55);
     }
 
     .subline{
-      margin-top:10px;
-      color:var(--muted2);
-      font-size:14px;
+      margin-top: 10px;
+      color: var(--muted2);
+      font-size: 15px;
     }
 
     footer{
@@ -174,28 +200,31 @@
 
     /* Mobile tightening */
     @media (max-width: 420px){
-      .hero{ min-height: 52vh; padding: 24px 16px 16px; }
-      .section{ padding-top: 8px; }
       .card{ padding: 22px; }
+      h2{ font-size: 30px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO TOP IMAGE (clean) -->
-  <section class="hero">
+  <!-- HERO (Top image replaces logo header) -->
+  <header class="hero">
+    <!-- ✅ MUST MATCH YOUR FILE NAME EXACTLY -->
+    <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training" />
+
     <div class="hero-content">
       <h1>Private Executive Training — NYC</h1>
       <p>Strength. Precision. Results. Coaching built for high-performing professionals.</p>
+      <div class="scroll-hint">Scroll to learn more ↓</div>
     </div>
-  </section>
+  </header>
 
   <!-- MAIN -->
-  <div class="section">
+  <main class="section">
 
     <!-- ABOUT -->
-    <div class="card">
+    <section class="card">
       <h2>About</h2>
       <p>
         Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of
@@ -207,15 +236,15 @@
       <p>
         Supportive, detail-oriented, and results-driven — coaching built for busy professionals.
       </p>
-    </div>
+    </section>
 
     <!-- SERVICES IMAGE -->
-    <div class="card">
+    <section class="card">
       <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session" />
-    </div>
+    </section>
 
     <!-- SERVICES -->
-    <div class="card">
+    <section class="card">
       <h2>Services</h2>
       <ul>
         <li>In-Home Personal Training</li>
@@ -224,10 +253,10 @@
         <li>Strength &amp; Movement Coaching</li>
         <li>Nutrition Guidance</li>
       </ul>
-    </div>
+    </section>
 
-    <!-- STRIPE (back where it belongs) -->
-    <div class="card card-cta">
+    <!-- STRIPE (✅ button back where it belongs) -->
+    <section class="card card-cta">
       <h2>Book Your Executive Assessment</h2>
       <a class="button"
          href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
@@ -236,10 +265,10 @@
         Book Executive Assessment — $200
       </a>
       <div class="subline">Includes assessment + training roadmap (60 minutes).</div>
-    </div>
+    </section>
 
-    <!-- CONSULTATION -->
-    <div class="card card-cta">
+    <!-- CALENDAR -->
+    <section class="card card-cta">
       <h2>Book a Consultation</h2>
       <p>Ready to get started? Schedule your consultation today.</p>
       <a class="button"
@@ -248,9 +277,9 @@
          rel="noopener noreferrer">
         Schedule Consultation Call
       </a>
-    </div>
+    </section>
 
-  </div>
+  </main>
 
   <footer>
     © 2026 Detail Fitness NYC — Private Coaching Across NYC
