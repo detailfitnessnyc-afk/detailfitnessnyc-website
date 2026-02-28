@@ -18,6 +18,11 @@
       --bg2:#0c0c0c;
       --panelTop:rgba(255,255,255,.05);
       --panelBot:rgba(255,255,255,.03);
+
+      /* ✅ HERO FRAMING CONTROLS (this is the fix) */
+      --hero-x: 66%;   /* move view window RIGHT so logo text shows */
+      --hero-y: 44%;   /* slightly up/down adjustment */
+      --hero-zoom: 1.01; /* reduce cropping so "DETAIL FITNESS" fits more */
     }
 
     *{ box-sizing:border-box; }
@@ -46,7 +51,7 @@
       max-height:560px;
       overflow:hidden;
       background:#000;
-      margin-top:0; /* tighten top */
+      margin-top:0;
     }
 
     .hero-img{
@@ -55,12 +60,12 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position:center;
+      /* ✅ KEY FIX: shift framing to show full "DETAIL FITNESS" */
+      object-position: var(--hero-x) var(--hero-y);
       display:block;
-      transform: scale(1.04); /* slight zoom to guarantee no edges show */
+      transform: scale(var(--hero-zoom));
     }
 
-    /* ✅ Richer luxury gradient overlay */
     .hero::before{
       content:"";
       position:absolute;
@@ -72,7 +77,6 @@
       pointer-events:none;
     }
 
-    /* Bottom fade into the page */
     .hero::after{
       content:"";
       position:absolute;
@@ -84,7 +88,7 @@
 
     /* ================= MAIN CONTENT ================= */
     .section{
-      padding: 10px 18px 110px; /* extra bottom padding so sticky CTA never covers content */
+      padding: 10px 18px 110px;
       max-width:980px;
       margin:0 auto;
     }
@@ -98,7 +102,6 @@
       box-shadow: 0 14px 40px rgba(0,0,0,.45);
     }
 
-    /* ✅ Intro card “VIP” polish */
     .intro{
       text-align:center;
       padding-top: 26px;
@@ -110,7 +113,7 @@
       font-size: clamp(28px, 6.8vw, 48px);
       line-height:1.04;
       letter-spacing:.2px;
-      font-weight:900; /* stronger headline */
+      font-weight:900;
     }
 
     .intro p{
@@ -193,7 +196,7 @@
       font-size: 14px;
     }
 
-    /* ================= STICKY CTA (conversion boost) ================= */
+    /* ================= STICKY CTA ================= */
     .sticky-cta{
       position:fixed;
       left:0; right:0;
@@ -238,13 +241,27 @@
       color: rgba(255,255,255,.60);
     }
 
-    /* Mobile tightening */
+    /* ✅ MOBILE: push framing even more right so logo text isn’t cut */
     @media (max-width: 420px){
+      :root{
+        --hero-x: 72%;
+        --hero-y: 42%;
+        --hero-zoom: 1.00;
+      }
       .hero{ height:52vh; min-height:320px; }
       .section{ padding-top: 8px; padding-bottom: 120px; }
       .card{ padding: 22px; }
       h2{ font-size: 30px; }
       .sticky-cta a{ font-size:17px; }
+    }
+
+    /* ✅ SUPER SMALL: (older iPhones / tight screens) */
+    @media (max-width: 360px){
+      :root{
+        --hero-x: 76%;
+        --hero-y: 42%;
+        --hero-zoom: 1.00;
+      }
     }
   </style>
 </head>
@@ -259,14 +276,12 @@
   <!-- MAIN -->
   <main class="section">
 
-    <!-- INTRO TEXT (NO BUTTON HERE) -->
     <section class="card intro">
       <h1>Private Executive Training — NYC</h1>
       <p>Strength. Precision. Results. Coaching built for high-performing professionals.</p>
       <div class="subline">Scroll down to book your Executive Assessment or a Consultation.</div>
     </section>
 
-    <!-- ABOUT -->
     <section class="card">
       <h2>About</h2>
       <p>
@@ -281,12 +296,10 @@
       </p>
     </section>
 
-    <!-- SERVICES IMAGE -->
     <section class="card">
       <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session" />
     </section>
 
-    <!-- SERVICES -->
     <section class="card">
       <h2>Services</h2>
       <ul>
@@ -298,7 +311,6 @@
       </ul>
     </section>
 
-    <!-- STRIPE (MAIN SECTION) -->
     <section class="card card-cta">
       <h2>Book Your Executive Assessment</h2>
       <a class="button"
@@ -310,7 +322,6 @@
       <div class="subline">Includes assessment + training roadmap (60 minutes).</div>
     </section>
 
-    <!-- CALENDAR -->
     <section class="card card-cta">
       <h2>Book a Consultation</h2>
       <p>Ready to get started? Schedule your consultation today.</p>
@@ -328,7 +339,6 @@
     © 2026 Detail Fitness NYC — Private Coaching Across NYC
   </footer>
 
-  <!-- ✅ STICKY CTA (Book button always visible) -->
   <div class="sticky-cta" role="region" aria-label="Book Executive Assessment">
     <div class="wrap">
       <a href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
