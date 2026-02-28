@@ -21,6 +21,8 @@
 
     *{ box-sizing:border-box; }
 
+    html, body{ height:100%; background:var(--bg1); }
+
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
@@ -35,47 +37,48 @@
     .hero{
       position:relative;
       width:100%;
-      /* Mobile-safe full height */
-      min-height:100svh;
-      min-height:100vh;
-      overflow:hidden;
+      /* Full-screen vibe but not “too far” from About */
+      min-height:72vh;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
+      overflow:hidden;
+      background:#000;
     }
 
-    /* The actual hero image (more reliable than background-image on iPhone Safari) */
+    /* Use <img> so iPhone Safari behaves consistently */
     .hero-img{
       position:absolute;
       inset:0;
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position:center;
+      /* slightly higher framing + zoom to remove any white padding in the JPG */
+      object-position:50% 35%;
+      transform: scale(1.18);
       display:block;
-      transform: scale(1.02);
     }
 
-    /* Gradient overlay */
+    /* Gradient overlay (luxury) */
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
       background:
         linear-gradient(180deg,
-          rgba(0,0,0,.35) 0%,
-          rgba(0,0,0,.60) 55%,
+          rgba(0,0,0,.25) 0%,
+          rgba(0,0,0,.55) 55%,
           rgba(0,0,0,.88) 100%);
       pointer-events:none;
     }
 
-    /* Bottom fade into page */
+    /* Bottom fade into page (tight) */
     .hero::after{
       content:"";
       position:absolute;
       left:0; right:0; bottom:-1px;
-      height:110px;
+      height:70px;
       background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(7,7,7,1) 100%);
       pointer-events:none;
     }
@@ -83,40 +86,37 @@
     .hero-content{
       position:relative;
       width:min(980px, 100%);
-      padding: 0 18px;
-      /* safe-area top padding for iPhone notch */
-      padding-top: env(safe-area-inset-top);
+      padding: 22px 18px;
+      padding-top: calc(22px + env(safe-area-inset-top));
+      text-shadow: 0 12px 45px rgba(0,0,0,.78);
     }
 
     .hero h1{
       margin:0 0 12px 0;
-      font-size: clamp(30px, 7vw, 52px);
-      line-height:1.05;
+      font-size: clamp(28px, 7vw, 52px);
+      line-height:1.06;
       letter-spacing:.2px;
-      text-shadow: 0 12px 45px rgba(0,0,0,.78);
     }
 
     .hero p{
-      margin:0 auto 0 auto;
-      max-width: 44ch;
+      margin:0 auto;
+      max-width: 46ch;
       font-size: clamp(15px, 4vw, 20px);
       line-height:1.55;
       color:var(--muted);
-      text-shadow: 0 12px 40px rgba(0,0,0,.78);
     }
 
-    /* Optional subtle scroll hint */
     .scroll-hint{
-      margin-top: 18px;
+      margin-top: 16px;
       font-size: 13px;
       color: rgba(255,255,255,.65);
-      letter-spacing: .2px;
+      letter-spacing:.2px;
     }
 
     /* ================= MAIN CONTENT ================= */
     .section{
-      /* Bring About closer to hero */
-      padding: 12px 18px 44px;
+      /* bring About closer to the hero */
+      padding: 10px 18px 44px;
       max-width:980px;
       margin:0 auto;
     }
@@ -161,9 +161,7 @@
       box-shadow: var(--shadow);
     }
 
-    .card-cta{
-      text-align:center;
-    }
+    .card-cta{ text-align:center; }
 
     .button{
       display:flex;
@@ -200,6 +198,8 @@
 
     /* Mobile tightening */
     @media (max-width: 420px){
+      .hero{ min-height:64vh; }
+      .section{ padding-top: 8px; }
       .card{ padding: 22px; }
       h2{ font-size: 30px; }
     }
@@ -208,7 +208,7 @@
 
 <body>
 
-  <!-- HERO (Top image replaces logo header) -->
+  <!-- HERO (Top image replaces the old logo header) -->
   <header class="hero">
     <!-- ✅ MUST MATCH YOUR FILE NAME EXACTLY -->
     <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training" />
@@ -255,7 +255,7 @@
       </ul>
     </section>
 
-    <!-- STRIPE (✅ button back where it belongs) -->
+    <!-- STRIPE (button back where it belongs) -->
     <section class="card card-cta">
       <h2>Book Your Executive Assessment</h2>
       <a class="button"
