@@ -33,13 +33,13 @@
     .hero{
       position:relative;
       width:100%;
-      /* Full screen feel, but still scroll-friendly */
-      min-height: 72vh;
+      /* tighter so About is closer */
+      min-height: 56vh;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding: 36px 18px 22px;
+      padding: 28px 18px 18px;
 
       background-image:url("detail-fitness-hero.jpg");
       background-size:cover;
@@ -54,9 +54,9 @@
       inset:0;
       background:
         linear-gradient(180deg,
-          rgba(0,0,0,.35) 0%,
-          rgba(0,0,0,.60) 50%,
-          rgba(0,0,0,.85) 100%);
+          rgba(0,0,0,.30) 0%,
+          rgba(0,0,0,.60) 55%,
+          rgba(0,0,0,.90) 100%);
     }
 
     /* Bottom fade into page */
@@ -64,7 +64,7 @@
       content:"";
       position:absolute;
       left:0; right:0; bottom:-1px;
-      height:90px;
+      height:70px;
       background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(7,7,7,1) 100%);
       pointer-events:none;
     }
@@ -84,40 +84,17 @@
     }
 
     .hero p{
-      margin:0 auto 18px auto;
-      max-width: 42ch;
+      margin:0 auto 0 auto;
+      max-width: 44ch;
       font-size: clamp(15px, 4vw, 20px);
       line-height:1.55;
       color:var(--muted);
       text-shadow: 0 10px 35px rgba(0,0,0,.75);
     }
 
-    .hero-button{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:min(560px, 100%);
-      padding:16px 18px;
-      border-radius:14px;
-      background: linear-gradient(180deg,#d7bf86 0%,var(--gold) 100%);
-      color:#0b0b0b;
-      text-decoration:none;
-      font-weight:900;
-      font-size:18px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.55);
-    }
-
-    .hero-subline{
-      margin-top:10px;
-      font-size:14px;
-      color:var(--muted2);
-      text-shadow: 0 10px 25px rgba(0,0,0,.8);
-    }
-
     /* ============ MAIN CONTENT ============ */
     .section{
-      /* Bring About closer to hero */
-      padding: 14px 18px 44px;
+      padding: 10px 18px 44px; /* brings About closer */
       max-width:980px;
       margin:0 auto;
     }
@@ -129,6 +106,10 @@
       padding: 28px;
       margin: 0 0 18px 0;
       box-shadow: 0 14px 40px rgba(0,0,0,.45);
+    }
+
+    .card-cta{
+      text-align:center;
     }
 
     h2{
@@ -175,6 +156,13 @@
       text-decoration:none;
       font-weight:900;
       font-size:18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.55);
+    }
+
+    .subline{
+      margin-top:10px;
+      color:var(--muted2);
+      font-size:14px;
     }
 
     footer{
@@ -186,8 +174,8 @@
 
     /* Mobile tightening */
     @media (max-width: 420px){
-      .hero{ min-height: 66vh; }
-      .section{ padding-top: 10px; }
+      .hero{ min-height: 52vh; padding: 24px 16px 16px; }
+      .section{ padding-top: 8px; }
       .card{ padding: 22px; }
     }
   </style>
@@ -195,20 +183,11 @@
 
 <body>
 
-  <!-- HERO (logo removed) -->
+  <!-- HERO TOP IMAGE (clean) -->
   <section class="hero">
     <div class="hero-content">
       <h1>Private Executive Training — NYC</h1>
       <p>Strength. Precision. Results. Coaching built for high-performing professionals.</p>
-
-      <a class="hero-button"
-         href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
-         target="_blank"
-         rel="noopener noreferrer">
-        Book Executive Assessment — $200
-      </a>
-
-      <div class="hero-subline">Includes assessment + training roadmap (60 minutes).</div>
     </div>
   </section>
 
@@ -247,8 +226,20 @@
       </ul>
     </div>
 
+    <!-- STRIPE (back where it belongs) -->
+    <div class="card card-cta">
+      <h2>Book Your Executive Assessment</h2>
+      <a class="button"
+         href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
+         target="_blank"
+         rel="noopener noreferrer">
+        Book Executive Assessment — $200
+      </a>
+      <div class="subline">Includes assessment + training roadmap (60 minutes).</div>
+    </div>
+
     <!-- CONSULTATION -->
-    <div class="card">
+    <div class="card card-cta">
       <h2>Book a Consultation</h2>
       <p>Ready to get started? Schedule your consultation today.</p>
       <a class="button"
