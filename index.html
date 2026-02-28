@@ -46,6 +46,7 @@
       max-height:560px;
       overflow:hidden;
       background:#000;
+      margin-top:0; /* tighten top */
     }
 
     .hero-img{
@@ -56,22 +57,22 @@
       object-fit:cover;
       object-position:center;
       display:block;
-      /* small zoom to guarantee no edges show */
-      transform: scale(1.04);
+      transform: scale(1.04); /* slight zoom to guarantee no edges show */
     }
 
+    /* ✅ Richer luxury gradient overlay */
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background:
-        linear-gradient(180deg,
-          rgba(0,0,0,.18) 0%,
-          rgba(0,0,0,.35) 55%,
-          rgba(0,0,0,.55) 100%);
+      background: linear-gradient(180deg,
+        rgba(0,0,0,.08) 0%,
+        rgba(0,0,0,.28) 45%,
+        rgba(0,0,0,.55) 100%);
       pointer-events:none;
     }
 
+    /* Bottom fade into the page */
     .hero::after{
       content:"";
       position:absolute;
@@ -83,7 +84,7 @@
 
     /* ================= MAIN CONTENT ================= */
     .section{
-      padding: 10px 18px 44px;
+      padding: 10px 18px 110px; /* extra bottom padding so sticky CTA never covers content */
       max-width:980px;
       margin:0 auto;
     }
@@ -97,7 +98,7 @@
       box-shadow: 0 14px 40px rgba(0,0,0,.45);
     }
 
-    /* Intro card */
+    /* ✅ Intro card “VIP” polish */
     .intro{
       text-align:center;
       padding-top: 26px;
@@ -107,8 +108,9 @@
     .intro h1{
       margin:0 0 10px 0;
       font-size: clamp(28px, 6.8vw, 48px);
-      line-height:1.06;
+      line-height:1.04;
       letter-spacing:.2px;
+      font-weight:900; /* stronger headline */
     }
 
     .intro p{
@@ -117,12 +119,14 @@
       font-size: clamp(15px, 3.8vw, 20px);
       line-height:1.55;
       color:var(--muted);
+      opacity:.92;
     }
 
     .intro .subline{
       margin-top: 12px;
       color: var(--muted2);
       font-size: 14px;
+      opacity:.70;
     }
 
     h2{
@@ -189,11 +193,58 @@
       font-size: 14px;
     }
 
+    /* ================= STICKY CTA (conversion boost) ================= */
+    .sticky-cta{
+      position:fixed;
+      left:0; right:0;
+      bottom:0;
+      padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(7,7,7,.70);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255,255,255,.10);
+      z-index: 9999;
+    }
+
+    .sticky-cta .wrap{
+      max-width:980px;
+      margin:0 auto;
+      display:flex;
+      justify-content:center;
+    }
+
+    .sticky-cta a{
+      width:min(560px, 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:16px 16px;
+      border-radius:14px;
+      background: linear-gradient(180deg,#d7bf86 0%,var(--gold) 100%);
+      color:#0b0b0b;
+      text-decoration:none;
+      font-weight:900;
+      font-size:18px;
+      line-height:1.1;
+      box-shadow: 0 14px 40px rgba(0,0,0,.55);
+    }
+
+    .sticky-cta .hint{
+      display:block;
+      text-align:center;
+      margin-top:8px;
+      font-size:12px;
+      color: rgba(255,255,255,.60);
+    }
+
+    /* Mobile tightening */
     @media (max-width: 420px){
       .hero{ height:52vh; min-height:320px; }
-      .section{ padding-top: 8px; }
+      .section{ padding-top: 8px; padding-bottom: 120px; }
       .card{ padding: 22px; }
       h2{ font-size: 30px; }
+      .sticky-cta a{ font-size:17px; }
     }
   </style>
 </head>
@@ -247,7 +298,7 @@
       </ul>
     </section>
 
-    <!-- STRIPE (ONLY BUTTON NOW) -->
+    <!-- STRIPE (MAIN SECTION) -->
     <section class="card card-cta">
       <h2>Book Your Executive Assessment</h2>
       <a class="button"
@@ -276,6 +327,18 @@
   <footer>
     © 2026 Detail Fitness NYC — Private Coaching Across NYC
   </footer>
+
+  <!-- ✅ STICKY CTA (Book button always visible) -->
+  <div class="sticky-cta" role="region" aria-label="Book Executive Assessment">
+    <div class="wrap">
+      <a href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
+         target="_blank"
+         rel="noopener noreferrer">
+        Book Executive Assessment — $200
+      </a>
+    </div>
+    <span class="hint">Tap to book anytime • Secure Stripe checkout</span>
+  </div>
 
 </body>
 </html>
