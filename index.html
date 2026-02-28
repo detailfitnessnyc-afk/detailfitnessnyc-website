@@ -1,256 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Detail Fitness NYC</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Detail Fitness NYC</title>
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
 
-    :root{
-      --bg: #0f0f0f;
-      --panel: #171717;
-      --panel2: #141414;
-      --border: rgba(255,255,255,.10);
-      --text: #ffffff;
-      --muted: rgba(255,255,255,.82);
-      --muted2: rgba(255,255,255,.72);
-      --gold: #c8a96a;
-      --shadow: 0 22px 70px rgba(0,0,0,.60);
-    }
+:root{
+--bg:#0b0b0b;
+--panel:#151515;
+--border:rgba(255,255,255,.10);
+--text:#ffffff;
+--muted:rgba(255,255,255,.86);
+--muted2:rgba(255,255,255,.70);
+--gold:#c8a96a;
+--shadow:0 18px 55px rgba(0,0,0,.55);
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background: radial-gradient(1200px 600px at 50% -80px, rgba(200,169,106,.10), transparent 60%),
-                  var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+*{box-sizing:border-box;}
 
-    header {
-      background: #000;
-      text-align: center;
-      padding: 42px 18px 30px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+color:var(--text);
 
-    .logo {
-      width: 92%;
-      max-width: 720px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      filter: drop-shadow(0 12px 34px rgba(0,0,0,.55));
-    }
+background:
+radial-gradient(1200px 800px at 20% -10%, rgba(200,169,106,.10), transparent 55%),
+linear-gradient(180deg,#070707 0%,#0c0c0c 35%,#070707 100%);
 
-    /* Main layout container */
-    .section {
-      padding: 46px 18px 30px;
-      max-width: 980px;
-      margin: 0 auto;
-    }
+overflow-x:hidden;
+}
 
-    /* Luxury card styling */
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      background-color: var(--panel);
-      padding: 30px;
-      margin: 0 0 22px 0;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
+header{
+background:linear-gradient(180deg,#000 0%,#0b0b0b 100%);
+text-align:center;
+padding:34px 18px 22px;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-    h2 {
-      margin: 0 0 14px 0;
-      font-size: 34px;
-      letter-spacing: .2px;
-    }
+.logo{
+width:92%;
+max-width:560px;
+height:auto;
+display:block;
+margin:0 auto;
+}
 
-    p {
-      margin: 0 0 12px 0;
-      line-height: 1.65;
-      color: var(--muted);
-      font-size: 18px;
-    }
+.section{
+padding:34px 18px 44px;
+max-width:980px;
+margin:0 auto;
+}
 
-    ul {
-      margin: 10px 0 0 22px;
-      padding: 0;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.65;
-    }
+.card{
+background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
+border:1px solid var(--border);
+border-radius:18px;
+padding:28px;
+margin:0 0 18px 0;
+box-shadow:0 14px 40px rgba(0,0,0,.45);
+}
 
-    /* Images */
-    .hero-image {
-      width: 100%;
-      max-width: 900px;
-      height: auto;
-      display: block;
-      margin: 18px auto 26px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 26px 75px rgba(0,0,0,.65);
-    }
+h2{
+margin:0 0 12px 0;
+font-size:34px;
+}
 
-    /* Make the round logo feel intentional */
-    .logo-round {
-      width: 240px;
-      max-width: 70vw;
-      height: auto;
-      display: block;
-      margin: 10px auto 18px;
-      border-radius: 999px;
-      box-shadow: 0 22px 70px rgba(0,0,0,.60);
-      opacity: .98;
-    }
+p{
+margin:0 0 12px 0;
+line-height:1.65;
+color:var(--muted);
+font-size:18px;
+}
 
-    .card-image {
-      width: 100%;
-      max-width: 900px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 22px 70px rgba(0,0,0,.65);
-    }
+ul{
+margin:10px 0 0 22px;
+padding:0;
+color:var(--muted);
+font-size:18px;
+line-height:1.65;
+}
 
-    /* CTA cards */
-    .card-cta {
-      text-align: center;
-      padding-top: 34px;
-      padding-bottom: 34px;
-    }
+/* IMAGE STYLE */
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+.card-image{
+width:100%;
+max-width:860px;
+height:auto;
+display:block;
+margin:0 auto;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.08);
+box-shadow:var(--shadow);
+}
 
-      width: 100%;
-      max-width: 560px;
+.card-cta{
+text-align:center;
+}
 
-      background: var(--gold);
-      color: #000;
+.button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
 
-      padding: 18px 20px;
-      border-radius: 16px;
+width:100%;
+max-width:560px;
 
-      text-decoration: none;
-      font-weight: 900;
-      font-size: 18px;
-      line-height: 1;
+background:linear-gradient(180deg,#d7bf86 0%,var(--gold) 100%);
+color:#0b0b0b;
 
-      margin: 16px auto 0;
+padding:18px 18px;
 
-      box-shadow: 0 14px 40px rgba(200,169,106,.20);
-      transform: translateY(0);
-      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
-    }
+border-radius:14px;
 
-    .button:active {
-      transform: translateY(1px);
-    }
+text-decoration:none;
+font-weight:900;
+font-size:18px;
 
-    .button:hover {
-      filter: brightness(1.02);
-      box-shadow: 0 18px 48px rgba(200,169,106,.28);
-    }
+margin:14px auto 0;
+}
 
-    footer {
-      text-align: center;
-      padding: 26px 16px 34px;
-      color: rgba(255,255,255,.62);
-      font-size: 14px;
-      letter-spacing: .2px;
-    }
+.subline{
+margin-top:6px;
+color:var(--muted2);
+font-size:15px;
+}
 
-    /* Mobile polish */
-    @media (max-width: 480px){
-      h2 { font-size: 32px; }
-      .card { padding: 26px; border-radius: 18px; }
-      .section { padding-top: 40px; }
-    }
-  </style>
+footer{
+text-align:center;
+padding:22px 16px 32px;
+color:rgba(255,255,255,.55);
+font-size:14px;
+}
+
+</style>
 </head>
 
 <body>
 
-  <header>
-    <img class="logo" src="logo-rectangular.png" alt="Detail Fitness NYC" />
-  </header>
+<header>
+<img class="logo" src="logo-rectangular.png" alt="Detail Fitness NYC" />
+</header>
 
-  <div class="section">
+<div class="section">
 
-    <!-- Circle logo image -->
-    <img class="logo-round" src="founder-card.jpg" alt="Detail Fitness NYC Logo" />
+<!-- ✅ NEW HERO IMAGE ADDED HERE -->
+<div class="card">
+<img class="card-image"
+src="detail-fitness-hero.jpg"
+alt="Detail Fitness NYC Executive Training"/>
+</div>
 
-    <!-- Main hero image -->
-    <img class="hero-image" src="founder-hero.jpg" alt="Detail Fitness NYC Hero" />
+<!-- ABOUT -->
+<div class="card">
 
-    <div class="card">
-      <h2>About</h2>
-      <p>
-        Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of
-        corporate and private training experience across NYC.
-      </p>
-      <p>
-        His philosophy is simple: motion is medicine. Proper technique, strength training, and consistency build lasting results.
-      </p>
-      <p>
-        Supportive, detail-oriented, and results-driven — coaching built for busy professionals.
-      </p>
-    </div>
+<h2>About</h2>
 
-    <div class="card">
-      <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session" />
-    </div>
+<p>
+Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of corporate and private training experience across NYC.
+</p>
 
-    <div class="card">
-      <h2>Services</h2>
-      <ul>
-        <li>In-Home Personal Training</li>
-        <li>Luxury Building Gym Training</li>
-        <li>12-Week Body Transformation Program</li>
-        <li>Strength &amp; Movement Coaching</li>
-        <li>Nutrition Guidance</li>
-      </ul>
-    </div>
+<p>
+His philosophy is simple: motion is medicine. Proper technique, strength training, and consistency build lasting results.
+</p>
 
-    <div class="card card-cta">
-      <h2>Book Your Executive Assessment</h2>
-      <a class="button"
-         href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
-         target="_blank"
-         rel="noopener noreferrer">
-        Book Executive Assessment — $200
-      </a>
-    </div>
+<p>
+Supportive, detail-oriented, and results-driven — coaching built for busy professionals.
+</p>
 
-    <div class="card card-cta">
-      <h2>Book a Consultation</h2>
-      <p style="color: rgba(255,255,255,.78);">
-        Ready to get started? Schedule your consultation today.
-      </p>
-      <a class="button"
-         href="https://calendar.app.google/FqDkkVB9s8dt6u1d6"
-         target="_blank"
-         rel="noopener noreferrer">
-        Schedule Consultation Call
-      </a>
-    </div>
+</div>
 
-  </div>
+<!-- SERVICES IMAGE -->
+<div class="card">
+<img class="card-image"
+src="client-training.jpg"
+alt="Private Personal Training Session"/>
+</div>
 
-  <footer>
-    © 2026 Detail Fitness NYC — Private Coaching Across NYC
-  </footer>
+<!-- SERVICES -->
+<div class="card">
+
+<h2>Services</h2>
+
+<ul>
+<li>In-Home Personal Training</li>
+<li>Luxury Building Gym Training</li>
+<li>12-Week Body Transformation Program</li>
+<li>Strength &amp; Movement Coaching</li>
+<li>Nutrition Guidance</li>
+</ul>
+
+</div>
+
+<!-- STRIPE -->
+<div class="card card-cta">
+
+<h2>Book Your Executive Assessment</h2>
+
+<a class="button"
+href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
+target="_blank"
+rel="noopener noreferrer">
+
+Book Executive Assessment — $200
+
+</a>
+
+<div class="subline">
+Includes assessment + training roadmap (60 minutes).
+</div>
+
+</div>
+
+<!-- CALENDAR -->
+<div class="card card-cta">
+
+<h2>Book a Consultation</h2>
+
+<p>
+Ready to get started? Schedule your consultation today.
+</p>
+
+<a class="button"
+href="https://calendar.app.google/FqDkkVB9s8dt6u1d6"
+target="_blank"
+rel="noopener noreferrer">
+
+Schedule Consultation Call
+
+</a>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 Detail Fitness NYC — Private Coaching Across NYC
+
+</footer>
 
 </body>
 </html>
