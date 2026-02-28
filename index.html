@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Detail Fitness NYC</title>
 
 <style>
 
 :root{
---bg:#0b0b0b;
---panel:#151515;
---border:rgba(255,255,255,.10);
---text:#ffffff;
---muted:rgba(255,255,255,.86);
---muted2:rgba(255,255,255,.70);
 --gold:#c8a96a;
+--text:#ffffff;
+--muted:rgba(255,255,255,.85);
+--border:rgba(255,255,255,.10);
 --shadow:0 18px 55px rgba(0,0,0,.55);
 }
 
-*{box-sizing:border-box;}
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
@@ -28,157 +27,209 @@ color:var(--text);
 background:
 radial-gradient(1200px 800px at 20% -10%, rgba(200,169,106,.10), transparent 55%),
 linear-gradient(180deg,#070707 0%,#0c0c0c 35%,#070707 100%);
-
-overflow-x:hidden;
 }
 
-header{
-background:linear-gradient(180deg,#000 0%,#0b0b0b 100%);
+/* ================= HERO ================= */
+
+.hero{
+position:relative;
+height:100vh;
+background-image:url("detail-fitness-hero.jpg");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
-padding:34px 18px 22px;
-border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.logo{
-width:92%;
-max-width:560px;
-height:auto;
-display:block;
-margin:0 auto;
+/* Gradient Overlay */
+
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,.35) 0%,
+rgba(0,0,0,.55) 45%,
+rgba(0,0,0,.85) 100%
+);
 }
+
+/* Hero Content */
+
+.hero-content{
+position:relative;
+max-width:900px;
+padding:20px;
+}
+
+.hero h1{
+font-size:42px;
+margin:0 0 16px;
+letter-spacing:.5px;
+}
+
+.hero p{
+font-size:20px;
+color:var(--muted);
+margin:0 0 24px;
+line-height:1.6;
+}
+
+.hero-button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(180deg,#d7bf86 0%,var(--gold) 100%);
+color:#000;
+padding:18px 28px;
+border-radius:14px;
+text-decoration:none;
+font-weight:900;
+font-size:18px;
+}
+
+/* ================= MAIN CONTENT ================= */
 
 .section{
-padding:34px 18px 44px;
+padding:44px 18px;
 max-width:980px;
-margin:0 auto;
+margin:auto;
 }
 
 .card{
-background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
+background:linear-gradient(
+180deg,
+rgba(255,255,255,.05),
+rgba(255,255,255,.03)
+);
 border:1px solid var(--border);
 border-radius:18px;
 padding:28px;
-margin:0 0 18px 0;
+margin-bottom:20px;
 box-shadow:0 14px 40px rgba(0,0,0,.45);
 }
 
 h2{
-margin:0 0 12px 0;
+margin:0 0 12px;
 font-size:34px;
 }
 
 p{
-margin:0 0 12px 0;
+font-size:18px;
 line-height:1.65;
 color:var(--muted);
-font-size:18px;
+margin:0 0 12px;
 }
 
 ul{
 margin:10px 0 0 22px;
-padding:0;
-color:var(--muted);
 font-size:18px;
-line-height:1.65;
+line-height:1.6;
+color:var(--muted);
 }
-
-/* IMAGE STYLE */
 
 .card-image{
 width:100%;
-max-width:860px;
-height:auto;
-display:block;
-margin:0 auto;
 border-radius:18px;
-border:1px solid rgba(255,255,255,.08);
 box-shadow:var(--shadow);
 }
 
-.card-cta{
-text-align:center;
-}
+/* Buttons */
 
 .button{
-display:inline-flex;
-align-items:center;
+display:flex;
 justify-content:center;
-
-width:100%;
-max-width:560px;
-
 background:linear-gradient(180deg,#d7bf86 0%,var(--gold) 100%);
-color:#0b0b0b;
-
-padding:18px 18px;
-
+color:#000;
+padding:18px;
 border-radius:14px;
-
-text-decoration:none;
 font-weight:900;
-font-size:18px;
-
-margin:14px auto 0;
-}
-
-.subline{
-margin-top:6px;
-color:var(--muted2);
-font-size:15px;
+text-decoration:none;
+margin-top:14px;
 }
 
 footer{
 text-align:center;
-padding:22px 16px 32px;
+padding:30px;
 color:rgba(255,255,255,.55);
 font-size:14px;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<header>
-<img class="logo" src="logo-rectangular.png" alt="Detail Fitness NYC" />
-</header>
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+Private Executive Training — NYC
+</h1>
+
+<p>
+Strength. Precision. Results.  
+Coaching built for high-performing professionals.
+</p>
+
+<a class="hero-button"
+href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
+target="_blank">
+
+Book Executive Assessment — $200
+
+</a>
+
+</div>
+
+</section>
+
 
 <div class="section">
 
-<!-- ✅ NEW HERO IMAGE ADDED HERE -->
-<div class="card">
-<img class="card-image"
-src="detail-fitness-hero.jpg"
-alt="Detail Fitness NYC Executive Training"/>
-</div>
-
 <!-- ABOUT -->
+
 <div class="card">
 
 <h2>About</h2>
 
 <p>
-Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with over four years of corporate and private training experience across NYC.
+Terrence Powell is a NASM Certified Personal Trainer and Precision Nutrition Level 1 Coach with corporate and private training experience across NYC.
 </p>
 
 <p>
-His philosophy is simple: motion is medicine. Proper technique, strength training, and consistency build lasting results.
+Movement is medicine — built on proper technique, structured programming, and sustainable results.
 </p>
 
 <p>
-Supportive, detail-oriented, and results-driven — coaching built for busy professionals.
+Supportive, detail-oriented coaching for busy professionals who want real progress.
 </p>
 
 </div>
 
 <!-- SERVICES IMAGE -->
+
 <div class="card">
+
 <img class="card-image"
 src="client-training.jpg"
-alt="Private Personal Training Session"/>
+alt="Private Personal Training">
+
 </div>
 
 <!-- SERVICES -->
+
 <div class="card">
 
 <h2>Services</h2>
@@ -187,34 +238,15 @@ alt="Private Personal Training Session"/>
 <li>In-Home Personal Training</li>
 <li>Luxury Building Gym Training</li>
 <li>12-Week Body Transformation Program</li>
-<li>Strength &amp; Movement Coaching</li>
+<li>Strength & Movement Coaching</li>
 <li>Nutrition Guidance</li>
 </ul>
 
 </div>
 
-<!-- STRIPE -->
-<div class="card card-cta">
+<!-- CONSULTATION -->
 
-<h2>Book Your Executive Assessment</h2>
-
-<a class="button"
-href="https://buy.stripe.com/5kQbJ3bcr2sYgHadxI9sk02"
-target="_blank"
-rel="noopener noreferrer">
-
-Book Executive Assessment — $200
-
-</a>
-
-<div class="subline">
-Includes assessment + training roadmap (60 minutes).
-</div>
-
-</div>
-
-<!-- CALENDAR -->
-<div class="card card-cta">
+<div class="card">
 
 <h2>Book a Consultation</h2>
 
@@ -224,8 +256,7 @@ Ready to get started? Schedule your consultation today.
 
 <a class="button"
 href="https://calendar.app.google/FqDkkVB9s8dt6u1d6"
-target="_blank"
-rel="noopener noreferrer">
+target="_blank">
 
 Schedule Consultation Call
 
