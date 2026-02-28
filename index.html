@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#070707" />
   <title>Detail Fitness NYC</title>
 
   <style>
@@ -21,10 +22,13 @@
 
     *{ box-sizing:border-box; }
 
-    html, body{ height:100%; background:var(--bg1); }
+    html, body{
+      margin:0;
+      padding:0;
+      background:var(--bg1);
+    }
 
     body{
-      margin:0;
       font-family: Arial, Helvetica, sans-serif;
       color:var(--text);
       background:
@@ -50,9 +54,10 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position:50% 35%;
-      transform: scale(1.18);
+      object-position:center;
       display:block;
+      /* small zoom to guarantee no edges show */
+      transform: scale(1.04);
     }
 
     .hero::before{
@@ -92,7 +97,7 @@
       box-shadow: 0 14px 40px rgba(0,0,0,.45);
     }
 
-    /* Intro card (TEXT ONLY — no Stripe button here anymore) */
+    /* Intro card */
     .intro{
       text-align:center;
       padding-top: 26px;
@@ -160,10 +165,8 @@
       width:100%;
       max-width:560px;
       margin:14px auto 0;
-
       background: linear-gradient(180deg,#d7bf86 0%,var(--gold) 100%);
       color:#0b0b0b;
-
       padding:18px 18px;
       border-radius:14px;
       text-decoration:none;
