@@ -9,6 +9,10 @@
   <meta name="description" content="Private executive training across NYC. Corrective exercise, joint-friendly strength training, and a structured 12-week system for busy professionals."/>
   <link rel="icon" href="logo-rectangular.png"/>
 
+  <!-- ✅ Micro upgrade: preconnects (tiny performance win) -->
+  <link rel="preconnect" href="https://calendar.app.google" crossorigin>
+  <link rel="preconnect" href="https://docs.google.com" crossorigin>
+
   <style>
     :root{
       --gold:#c8a96a;
@@ -134,6 +138,15 @@
       text-shadow: 0 16px 40px rgba(0,0,0,.35);
     }
 
+    .microline{
+      margin: 0 auto 10px auto;
+      max-width: 62ch;
+      font-size: clamp(14px, 3.6vw, 18px);
+      line-height: 1.45;
+      color: rgba(255,255,255,.82);
+    }
+    .microline strong{ color: rgba(255,255,255,.92); }
+
     .lead{
       margin:0 auto 0 auto;
       max-width: 54ch;
@@ -208,6 +221,47 @@
 
     .pill strong{ display:block; font-size:16px; margin-bottom:6px; }
     .pill span{ display:block; font-size:14px; line-height:1.45; color: rgba(255,255,255,.78); }
+
+    /* ===== Testimonials ===== */
+    .testimonials{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .t-card{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding: 16px;
+      background: rgba(255,255,255,.03);
+    }
+    .t-quote{
+      margin:0 0 12px 0;
+      font-size: 15px;
+      line-height: 1.55;
+      color: rgba(255,255,255,.86);
+    }
+    .t-meta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .t-avatar{
+      width:38px; height:38px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.14);
+      object-fit:cover;
+      flex: 0 0 auto;
+    }
+    .t-name{
+      font-weight:800;
+      font-size: 14px;
+    }
+    .t-title{
+      font-size: 12px;
+      color: rgba(255,255,255,.62);
+      margin-top:2px;
+    }
 
     .card-image{
       width:100%;
@@ -413,6 +467,7 @@
     @media (max-width: 860px){
       .grid{ grid-template-columns: 1fr; }
       .row{ grid-template-columns: 1fr; }
+      .testimonials{ grid-template-columns: 1fr; }
     }
 
     @media (max-width: 420px){
@@ -432,8 +487,10 @@
 <body>
 
   <header class="hero" aria-label="Detail Fitness NYC">
-    <img class="hero-bg" src="detail-fitness-hero.jpg" alt="" aria-hidden="true"/>
-    <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training"/>
+    <!-- ✅ Micro upgrade: lazy-load hero bg (still looks the same) -->
+    <img class="hero-bg" src="detail-fitness-hero.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"/>
+    <!-- ✅ Micro upgrade: give priority to the main hero image -->
+    <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training" fetchpriority="high" decoding="async"/>
   </header>
 
   <main class="section">
@@ -441,6 +498,10 @@
     <section class="card headline reveal">
       <span class="kicker">NYC Executive Coaching</span>
       <h1>Private Executive Training — NYC</h1>
+
+      <!-- ✅ Micro upgrade: remove the “NYC repeats NYC” issue -->
+      <p class="microline"><strong>In-home and private gym coaching</strong> across Manhattan, Brooklyn, and select NYC private facilities.</p>
+
       <p class="lead">Strength. Precision. Results. Corrective exercise + structured programming built for busy professionals.</p>
 
       <div class="badges" aria-label="Credentials">
@@ -467,7 +528,7 @@
         </div>
         <div class="pill">
           <strong>3) Execute</strong>
-          <span>Measurable checkpoints and an executive-level training system.</span>
+          <span>Measurable checkpoints and an executive-level accountability + results system.</span>
         </div>
       </div>
     </section>
@@ -482,6 +543,50 @@
       </ul>
     </section>
 
+    <section class="card reveal" aria-label="Testimonials">
+      <span class="kicker">Testimonials</span>
+      <h2>What clients say.</h2>
+      <p style="color: rgba(255,255,255,.68); font-size:14px; margin-top:-2px;">
+        (Sample layout — real testimonials added as client results come in.)
+      </p>
+
+      <div class="testimonials">
+        <div class="t-card">
+          <p class="t-quote">“Sample: Clear structure, zero wasted time, and I feel better week to week.”</p>
+          <div class="t-meta">
+            <!-- ✅ Upgrade you requested: loading="lazy" + decoding="async" -->
+            <img class="t-avatar" src="testimonial-1.jpg" alt="Client avatar (illustrative)" loading="lazy" decoding="async"/>
+            <div>
+              <div class="t-name">Client (Sample)</div>
+              <div class="t-title">NYC Professional</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-card">
+          <p class="t-quote">“Sample: Joint-friendly training that still pushes performance.”</p>
+          <div class="t-meta">
+            <img class="t-avatar" src="testimonial-2.jpg" alt="Client avatar (illustrative)" loading="lazy" decoding="async"/>
+            <div>
+              <div class="t-name">Client (Sample)</div>
+              <div class="t-title">Manhattan</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-card">
+          <p class="t-quote">“Sample: Professional, punctual, and the plan is always clear.”</p>
+          <div class="t-meta">
+            <img class="t-avatar" src="testimonial-3.jpg" alt="Client avatar (illustrative)" loading="lazy" decoding="async"/>
+            <div>
+              <div class="t-name">Client (Sample)</div>
+              <div class="t-title">Brooklyn</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="card reveal">
       <span class="kicker">About</span>
       <h2>Coaching built for NYC.</h2>
@@ -489,6 +594,8 @@
         Terrence Powell is a NASM Certified Personal Trainer, Precision Nutrition Level 1 Coach, and a Focus Personal Training Institute graduate.
         With 4+ years of corporate gym coaching and 10+ years of private training across NYC, the focus is simple:
         move better, get stronger, and stay consistent.
+        <br><br>
+        <strong>Trusted by professionals across NYC residential buildings and private facilities.</strong>
       </p>
       <ul>
         <li><strong>Method:</strong> corrective exercise + joint-friendly strength + smart progression</li>
@@ -498,7 +605,8 @@
     </section>
 
     <section class="card reveal">
-      <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session"/>
+      <!-- ✅ Micro upgrade: lazy load content images -->
+      <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session" loading="lazy" decoding="async"/>
     </section>
 
     <section class="card reveal">
@@ -512,6 +620,43 @@
         <li>Strength &amp; Movement Coaching</li>
         <li>Nutrition Guidance (Precision Nutrition Level 1)</li>
       </ul>
+    </section>
+
+    <section class="card reveal" aria-label="FAQ">
+      <span class="kicker">FAQ</span>
+      <h2>Frequently asked questions.</h2>
+
+      <div class="grid">
+        <div class="pill">
+          <strong>Do you travel?</strong>
+          <span>Yes. In-home and private gym sessions are available based on location and schedule.</span>
+        </div>
+
+        <div class="pill">
+          <strong>What areas do you cover?</strong>
+          <span>Manhattan, Brooklyn, and NYC-area private facilities. (Exact availability depends on your building/location.)</span>
+        </div>
+
+        <div class="pill">
+          <strong>What’s your cancellation policy?</strong>
+          <span>24-hour notice is appreciated. Same-day cancellations may be counted as a session (exceptions for emergencies).</span>
+        </div>
+
+        <div class="pill">
+          <strong>Do you offer packages?</strong>
+          <span>Yes. After your strategy call, you’ll receive the best-fit plan and package options based on your schedule and goals.</span>
+        </div>
+
+        <div class="pill">
+          <strong>What happens after the strategy call?</strong>
+          <span>If we’re a fit, you’ll receive intake + waiver + onboarding steps and we’ll schedule your first session.</span>
+        </div>
+
+        <div class="pill">
+          <strong>Do you work with injuries?</strong>
+          <span>Training is joint-friendly and corrective-focused, but medical issues may require physician clearance.</span>
+        </div>
+      </div>
     </section>
 
     <section class="card reveal" aria-label="Quick Intake">
@@ -534,7 +679,6 @@
         <div class="row">
           <div>
             <label for="goal">Primary goal</label>
-            <!-- MUST MATCH YOUR GOOGLE FORM OPTIONS -->
             <select id="goal" name="goal" required>
               <option value="" selected disabled>Select one</option>
               <option>Fat loss</option>
@@ -547,7 +691,6 @@
 
           <div>
             <label for="availability">Preferred training time</label>
-            <!-- MUST MATCH YOUR GOOGLE FORM OPTIONS -->
             <select id="availability" name="availability" required>
               <option value="" selected disabled>Select one</option>
               <option>Early morning</option>
@@ -637,15 +780,11 @@
       cards.forEach((c) => io.observe(c));
     }
 
-    // ===== LEVEL 3: Lead capture + SEND TO GOOGLE SHEETS (via Google Form) =====
     const CAL_LINK = "https://calendar.app.google/WmyJvhYomMCH7qZJ8";
 
-    // ✅ FROM YOUR FORM ID:
-    // https://docs.google.com/forms/d/e/<FORM_ID>/formResponse
     const GOOGLE_FORM_ACTION =
       "https://docs.google.com/forms/d/e/1FAIpQLSePNo6kGB4obeQp8ALzfGE2T-9vAmcRFbW3GmRdUc8D1NaUjw/formResponse";
 
-    // ✅ ENTRY IDs (FROM YOUR PREFILLED LINK)
     const ENTRY_NAME         = "entry.1267692524";
     const ENTRY_EMAIL        = "entry.1910906448";
     const ENTRY_GOAL         = "entry.1317633299";
@@ -694,7 +833,7 @@
           mode: "no-cors",
           body: fd
         });
-        return true; // no-cors won't confirm, but it sends
+        return true;
       }catch(e){
         return false;
       }
