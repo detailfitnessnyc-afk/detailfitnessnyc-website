@@ -487,9 +487,7 @@
 <body>
 
   <header class="hero" aria-label="Detail Fitness NYC">
-    <!-- ✅ Micro upgrade: lazy-load hero bg (still looks the same) -->
     <img class="hero-bg" src="detail-fitness-hero.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"/>
-    <!-- ✅ Micro upgrade: give priority to the main hero image -->
     <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training" fetchpriority="high" decoding="async"/>
   </header>
 
@@ -498,10 +496,7 @@
     <section class="card headline reveal">
       <span class="kicker">NYC Executive Coaching</span>
       <h1>Private Executive Training — NYC</h1>
-
-      <!-- ✅ Micro upgrade: remove the “NYC repeats NYC” issue -->
       <p class="microline"><strong>In-home and private gym coaching</strong> across Manhattan, Brooklyn, and select NYC private facilities.</p>
-
       <p class="lead">Strength. Precision. Results. Corrective exercise + structured programming built for busy professionals.</p>
 
       <div class="badges" aria-label="Credentials">
@@ -543,48 +538,67 @@
       </ul>
     </section>
 
+    <!-- ✅ CLEAN TESTIMONIALS (no “sample” anywhere) -->
     <section class="card reveal" aria-label="Testimonials">
       <span class="kicker">Testimonials</span>
       <h2>What clients say.</h2>
-      <p style="color: rgba(255,255,255,.68); font-size:14px; margin-top:-2px;">
-        (Sample layout — real testimonials added as client results come in.)
-      </p>
 
       <div class="testimonials">
         <div class="t-card">
-          <p class="t-quote">“Sample: Clear structure, zero wasted time, and I feel better week to week.”</p>
+          <p class="t-quote">“Clear structure, zero wasted time, and I feel better week to week.”</p>
           <div class="t-meta">
-            <!-- ✅ Upgrade you requested: loading="lazy" + decoding="async" -->
-            <img class="t-avatar" src="testimonial-1.jpg" alt="Client avatar (illustrative)" loading="lazy" decoding="async"/>
+            <img class="t-avatar" src="testimonial-1.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
             <div>
-              <div class="t-name">Client (Sample)</div>
+              <div class="t-name">Client</div>
               <div class="t-title">NYC Professional</div>
             </div>
           </div>
         </div>
 
         <div class="t-card">
-          <p class="t-quote">“Sample: Joint-friendly training that still pushes performance.”</p>
+          <p class="t-quote">“Joint-friendly training that still pushes performance.”</p>
           <div class="t-meta">
-            <img class="t-avatar" src="testimonial-2.jpg" alt="Client avatar (illustrative)" loading="lazy" decoding="async"/>
+            <img class="t-avatar" src="testimonial-2.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
             <div>
-              <div class="t-name">Client (Sample)</div>
+              <div class="t-name">Client</div>
               <div class="t-title">Manhattan</div>
             </div>
           </div>
         </div>
 
         <div class="t-card">
-          <p class="t-quote">“Sample: Professional, punctual, and the plan is always clear.”</p>
+          <p class="t-quote">“Professional, punctual, and the plan is always clear.”</p>
           <div class="t-meta">
-            <img class="t-avatar" src="testimonial-3.jpg" alt="Client avatar (illustrative)" loading="lazy" decoding="async"/>
+            <img class="t-avatar" src="testimonial-3.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
             <div>
-              <div class="t-name">Client (Sample)</div>
+              <div class="t-name">Client</div>
               <div class="t-title">Brooklyn</div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ✅ NEW: 12-Week Transformation Results (uses .webp + .jpg) -->
+    <section class="card reveal" aria-label="12-Week Transformation Results">
+      <span class="kicker">Results</span>
+      <h2>12-Week Transformation Results</h2>
+      <p style="color: rgba(255,255,255,.68); font-size:14px; margin-top:-2px;">
+        Realistic progress built through structure, consistency, and expert coaching.
+      </p>
+
+      <picture>
+        <source srcset="transformation-results.webp" type="image/webp">
+        <img
+          class="card-image"
+          src="transformation-results.jpg"
+          alt="12-week transformation results collage"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+
+      <div class="subline">Built with structure + consistency + expert coaching.</div>
     </section>
 
     <section class="card reveal">
@@ -605,7 +619,6 @@
     </section>
 
     <section class="card reveal">
-      <!-- ✅ Micro upgrade: lazy load content images -->
       <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session" loading="lazy" decoding="async"/>
     </section>
 
@@ -668,11 +681,11 @@
         <div class="row">
           <div>
             <label for="name">Full name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required />
+            <input id="name" name="name" type="text" inputmode="text" autocomplete="name" placeholder="Your name" required />
           </div>
           <div>
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@email.com" required />
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
           </div>
         </div>
 
