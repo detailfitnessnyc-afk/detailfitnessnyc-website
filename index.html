@@ -12,7 +12,6 @@
   <!-- ✅ Micro upgrade: preconnects (tiny performance win) -->
   <link rel="preconnect" href="https://calendar.app.google" crossorigin>
   <link rel="preconnect" href="https://docs.google.com" crossorigin>
-  <link rel="preconnect" href="https://credentials.nasm.org" crossorigin>
 
   <style>
     :root{
@@ -108,7 +107,7 @@
 
     .hero-bg, .hero-img{ z-index:1; }
 
-    /* ✅ UPGRADE: more bottom padding so sticky CTA NEVER covers content */
+    /* ✅ More bottom padding so sticky CTA NEVER covers content */
     .section{
       max-width:var(--max);
       margin:0 auto;
@@ -207,44 +206,30 @@
       color: rgba(255,255,255,.82);
     }
 
-    /* ✅ NEW: verified credentials link under badges */
-    .cred-wrap{
-      margin-top: 12px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap: 8px;
-    }
+    /* ✅ NASM credentials link (Option A) */
     .cred-link{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      text-decoration:none;
-      color: rgba(255,255,255,.92);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
+      margin: 12px auto 0;
       padding: 12px 14px;
       border-radius: 999px;
-      font-size: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.88);
+      text-decoration: none;
+      font-size: 13px;
       font-weight: 800;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
-      transition: transform 180ms var(--ease), border-color 180ms var(--ease), filter 180ms var(--ease);
-      -webkit-tap-highlight-color: transparent;
+      width: fit-content;
     }
-    .cred-link:hover{ transform: translateY(-1px); border-color: rgba(200,169,106,.35); filter: brightness(1.03); }
-    .cred-link:active{ transform: translateY(1px) scale(.99); }
-    .cred-dot{
-      width:8px; height:8px; border-radius:50%;
-      background: linear-gradient(180deg,var(--gold2) 0%,var(--gold) 100%);
-      box-shadow: 0 0 0 4px rgba(200,169,106,.14);
-      flex: 0 0 auto;
-    }
-    .cred-note{
+    .cred-link:hover{ border-color: rgba(200,169,106,.35); }
+    .cred-sub{
+      text-align:center;
+      margin-top: 8px;
       font-size: 12px;
       color: rgba(255,255,255,.62);
-      text-align:center;
-      max-width: 62ch;
+      line-height:1.4;
     }
 
     .grid{
@@ -339,7 +324,7 @@
     .button:hover{ transform: translateY(-1px); filter: brightness(1.02); }
     .button:active{ transform: translateY(1px) scale(.99); }
 
-    /* ====== MICRO FORM (LEVEL 3) ====== */
+    /* ====== MICRO FORM ====== */
     .form{ margin-top: 10px; display:grid; gap: 12px; }
     .row{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
@@ -548,19 +533,13 @@
         <span class="badge">12-Week System</span>
       </div>
 
-      <!-- ✅ OPTION A: NASM link under badges -->
-      <div class="cred-wrap" aria-label="Verified credentials">
-        <a class="cred-link"
-           href="https://credentials.nasm.org/6c2da776-1131-481f-a9de-43d30b6b1e77"
-           target="_blank"
-           rel="noopener noreferrer">
-          <span class="cred-dot" aria-hidden="true"></span>
-          Verified NASM Credentials
-        </a>
-        <div class="cred-note">
-          Tap to view certification verification directly on NASM’s credential portal.
-        </div>
-      </div>
+      <a class="cred-link"
+         href="https://credentials.nasm.org/6c2da776-1131-481f-a9de-43d30b6b1e77"
+         target="_blank"
+         rel="noopener noreferrer">
+        View verified NASM credentials →
+      </a>
+      <div class="cred-sub">Opens a secure NASM credential page in a new tab.</div>
 
       <div class="subline">Scroll down for how it works, services, and to book your free strategy call.</div>
     </section>
@@ -594,7 +573,6 @@
       </ul>
     </section>
 
-    <!-- ✅ UPDATED TESTIMONIALS (no quote marks; longer; feels real) -->
     <section class="card reveal" aria-label="Testimonials">
       <span class="kicker">Testimonials</span>
       <h2>What clients say.</h2>
@@ -648,7 +626,6 @@
       </p>
     </section>
 
-    <!-- ✅ RESULTS -->
     <section class="card reveal" id="results" aria-label="12-Week Transformation Results">
       <span class="kicker">Results</span>
       <h2>12-Week Transformation Results</h2>
@@ -657,11 +634,11 @@
       </p>
 
       <picture>
-        <source srcset="transformation-results.webp" type="image/webp">
+        <source srcset="transformation-results-b42739.webp" type="image/webp">
         <img
           class="card-image"
-          src="transformation-results.jpg"
-          alt="12-week transformation results collage"
+          src="transformation-results-b42739.jpg"
+          alt="12-week executive transformation results collage"
           loading="lazy"
           decoding="async"
         />
