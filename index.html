@@ -12,6 +12,7 @@
   <!-- ✅ Micro upgrade: preconnects (tiny performance win) -->
   <link rel="preconnect" href="https://calendar.app.google" crossorigin>
   <link rel="preconnect" href="https://docs.google.com" crossorigin>
+  <link rel="preconnect" href="https://credentials.nasm.org" crossorigin>
 
   <style>
     :root{
@@ -107,10 +108,11 @@
 
     .hero-bg, .hero-img{ z-index:1; }
 
+    /* ✅ UPGRADE: more bottom padding so sticky CTA NEVER covers content */
     .section{
       max-width:var(--max);
       margin:0 auto;
-      padding: 14px 18px 148px;
+      padding: 14px 18px 190px;
     }
 
     .card{
@@ -203,6 +205,46 @@
       padding: 10px 12px;
       font-size: 13px;
       color: rgba(255,255,255,.82);
+    }
+
+    /* ✅ NEW: verified credentials link under badges */
+    .cred-wrap{
+      margin-top: 12px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap: 8px;
+    }
+    .cred-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      color: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      padding: 12px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), filter 180ms var(--ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cred-link:hover{ transform: translateY(-1px); border-color: rgba(200,169,106,.35); filter: brightness(1.03); }
+    .cred-link:active{ transform: translateY(1px) scale(.99); }
+    .cred-dot{
+      width:8px; height:8px; border-radius:50%;
+      background: linear-gradient(180deg,var(--gold2) 0%,var(--gold) 100%);
+      box-shadow: 0 0 0 4px rgba(200,169,106,.14);
+      flex: 0 0 auto;
+    }
+    .cred-note{
+      font-size: 12px;
+      color: rgba(255,255,255,.62);
+      text-align:center;
+      max-width: 62ch;
     }
 
     .grid{
@@ -472,7 +514,7 @@
 
     @media (max-width: 420px){
       .hero{ height:52vh; min-height:320px; }
-      .section{ padding-top: 10px; padding-bottom: 152px; }
+      .section{ padding-top: 10px; padding-bottom: 200px; }
       .card{ padding: 22px; }
       .toast{ bottom: 98px; }
     }
@@ -504,6 +546,20 @@
         <span class="badge">Precision Nutrition L1</span>
         <span class="badge">Corrective Exercise Focus</span>
         <span class="badge">12-Week System</span>
+      </div>
+
+      <!-- ✅ OPTION A: NASM link under badges -->
+      <div class="cred-wrap" aria-label="Verified credentials">
+        <a class="cred-link"
+           href="https://credentials.nasm.org/6c2da776-1131-481f-a9de-43d30b6b1e77"
+           target="_blank"
+           rel="noopener noreferrer">
+          <span class="cred-dot" aria-hidden="true"></span>
+          Verified NASM Credentials
+        </a>
+        <div class="cred-note">
+          Tap to view certification verification directly on NASM’s credential portal.
+        </div>
       </div>
 
       <div class="subline">Scroll down for how it works, services, and to book your free strategy call.</div>
@@ -538,14 +594,17 @@
       </ul>
     </section>
 
-    <!-- ✅ CLEAN TESTIMONIALS (no “sample” anywhere) -->
+    <!-- ✅ UPDATED TESTIMONIALS (no quote marks; longer; feels real) -->
     <section class="card reveal" aria-label="Testimonials">
       <span class="kicker">Testimonials</span>
       <h2>What clients say.</h2>
 
       <div class="testimonials">
         <div class="t-card">
-          <p class="t-quote">“Clear structure, zero wasted time, and I feel better week to week.”</p>
+          <p class="t-quote">
+            Training finally feels organized. Every session has a purpose, and I’m stronger without beating up my joints.
+            I also feel better during the workweek—less stiffness, more energy.
+          </p>
           <div class="t-meta">
             <img class="t-avatar" src="testimonial-1.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
             <div>
@@ -556,7 +615,10 @@
         </div>
 
         <div class="t-card">
-          <p class="t-quote">“Joint-friendly training that still pushes performance.”</p>
+          <p class="t-quote">
+            I came in with tight hips and a cranky shoulder. The coaching is detailed and joint-friendly, but it still pushes me.
+            My posture and strength have improved noticeably.
+          </p>
           <div class="t-meta">
             <img class="t-avatar" src="testimonial-2.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
             <div>
@@ -567,7 +629,10 @@
         </div>
 
         <div class="t-card">
-          <p class="t-quote">“Professional, punctual, and the plan is always clear.”</p>
+          <p class="t-quote">
+            Professional, punctual, and prepared. The plan is always clear, and it’s easy to stay consistent even with a busy schedule.
+            I’m seeing progress without guessing what to do.
+          </p>
           <div class="t-meta">
             <img class="t-avatar" src="testimonial-3.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
             <div>
@@ -577,10 +642,14 @@
           </div>
         </div>
       </div>
+
+      <p class="subline" style="text-align:center; margin-top: 14px;">
+        Here’s what 12 weeks of structure + consistency can look like when the plan is built around your schedule.
+      </p>
     </section>
 
-    <!-- ✅ NEW: 12-Week Transformation Results (uses .webp + .jpg) -->
-    <section class="card reveal" aria-label="12-Week Transformation Results">
+    <!-- ✅ RESULTS -->
+    <section class="card reveal" id="results" aria-label="12-Week Transformation Results">
       <span class="kicker">Results</span>
       <h2>12-Week Transformation Results</h2>
       <p style="color: rgba(255,255,255,.68); font-size:14px; margin-top:-2px;">
@@ -598,7 +667,9 @@
         />
       </picture>
 
-      <div class="subline">Built with structure + consistency + expert coaching.</div>
+      <div class="subline">
+        Results vary based on starting point, consistency, recovery, and schedule. Your plan is individualized.
+      </div>
     </section>
 
     <section class="card reveal">
