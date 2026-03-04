@@ -17,6 +17,11 @@
     :root{
       --gold:#c8a96a;
       --gold2:#d7bf86;
+
+      /* ✅ NEW: Intake button color (teal/blue premium) */
+      --intake1:#3fd1c3;
+      --intake2:#2aa7ff;
+
       --text:#ffffff;
       --muted:rgba(255,255,255,.86);
       --muted2:rgba(255,255,255,.68);
@@ -206,7 +211,6 @@
       color: rgba(255,255,255,.82);
     }
 
-    /* ✅ NASM credentials link (Option A) */
     .cred-link{
       display:inline-flex;
       align-items:center;
@@ -249,7 +253,6 @@
     .pill strong{ display:block; font-size:16px; margin-bottom:6px; }
     .pill span{ display:block; font-size:14px; line-height:1.45; color: rgba(255,255,255,.78); }
 
-    /* ===== Testimonials ===== */
     .testimonials{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -324,14 +327,14 @@
     .button:hover{ transform: translateY(-1px); filter: brightness(1.02); }
     .button:active{ transform: translateY(1px) scale(.99); }
 
-    /* ✅ Secondary button style (for Intake link) */
+    /* ✅ UPDATED: Intake button is now teal/blue gradient */
     .button.secondary{
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.92);
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: none;
+      background: linear-gradient(180deg,var(--intake2) 0%,var(--intake1) 100%);
+      color:#061018;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
     }
-    .button.secondary:hover{ border-color: rgba(200,169,106,.35); filter:none; }
+    .button.secondary:hover{ filter: brightness(1.03); }
 
     /* ====== MICRO FORM ====== */
     .form{ margin-top: 10px; display:grid; gap: 12px; }
@@ -472,15 +475,16 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* ✅ UPDATED: Sticky Intake button matches teal/blue */
     .sticky-cta a.secondary{
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.92);
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: none;
+      background: linear-gradient(180deg,var(--intake2) 0%,var(--intake1) 100%);
+      color:#061018;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
       font-size: 16px;
       padding:14px 14px;
     }
-    .sticky-cta a.secondary:hover{ border-color: rgba(200,169,106,.35); filter:none; }
+    .sticky-cta a.secondary:hover{ filter: brightness(1.03); }
 
     .sticky-cta .hint{
       display:block;
@@ -596,153 +600,6 @@
       </ul>
     </section>
 
-    <section class="card reveal" aria-label="Testimonials">
-      <span class="kicker">Testimonials</span>
-      <h2>What clients say.</h2>
-
-      <div class="testimonials">
-        <div class="t-card">
-          <p class="t-quote">
-            Training finally feels organized. Every session has a purpose, and I’m stronger without beating up my joints.
-            I also feel better during the workweek—less stiffness, more energy.
-          </p>
-          <div class="t-meta">
-            <img class="t-avatar" src="testimonial-1.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
-            <div>
-              <div class="t-name">Client</div>
-              <div class="t-title">NYC Professional</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="t-card">
-          <p class="t-quote">
-            I came in with tight hips and a cranky shoulder. The coaching is detailed and joint-friendly, but it still pushes me.
-            My posture and strength have improved noticeably.
-          </p>
-          <div class="t-meta">
-            <img class="t-avatar" src="testimonial-2.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
-            <div>
-              <div class="t-name">Client</div>
-              <div class="t-title">Manhattan</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="t-card">
-          <p class="t-quote">
-            Professional, punctual, and prepared. The plan is always clear, and it’s easy to stay consistent even with a busy schedule.
-            I’m seeing progress without guessing what to do.
-          </p>
-          <div class="t-meta">
-            <img class="t-avatar" src="testimonial-3.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
-            <div>
-              <div class="t-name">Client</div>
-              <div class="t-title">Brooklyn</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p class="subline" style="text-align:center; margin-top: 14px;">
-        Here’s what 12 weeks of structure + consistency can look like when the plan is built around your schedule.
-      </p>
-    </section>
-
-    <section class="card reveal" id="results" aria-label="12-Week Transformation Results">
-      <span class="kicker">Results</span>
-      <h2>12-Week Transformation Results</h2>
-      <p style="color: rgba(255,255,255,.68); font-size:14px; margin-top:-2px;">
-        Realistic progress built through structure, consistency, and expert coaching.
-      </p>
-
-      <picture>
-        <source srcset="transformation-results-b42739.webp" type="image/webp">
-        <img
-          class="card-image"
-          src="transformation-results-b42739.jpg"
-          alt="12-week executive transformation results collage"
-          loading="lazy"
-          decoding="async"
-        />
-      </picture>
-
-      <div class="subline">
-        Results vary based on starting point, consistency, recovery, and schedule. Your plan is individualized.
-      </div>
-    </section>
-
-    <section class="card reveal">
-      <span class="kicker">About</span>
-      <h2>Coaching built for NYC.</h2>
-      <p>
-        Terrence Powell is a NASM Certified Personal Trainer, Precision Nutrition Level 1 Coach, and a Focus Personal Training Institute graduate.
-        With 4+ years of corporate gym coaching and 10+ years of private training across NYC, the focus is simple:
-        move better, get stronger, and stay consistent.
-        <br><br>
-        <strong>Trusted by professionals across NYC residential buildings and private facilities.</strong>
-      </p>
-      <ul>
-        <li><strong>Method:</strong> corrective exercise + joint-friendly strength + smart progression</li>
-        <li><strong>System:</strong> 12-week model (Foundation → Strength → Performance)</li>
-        <li><strong>Outcome:</strong> measurable results built for a busy schedule</li>
-      </ul>
-    </section>
-
-    <section class="card reveal">
-      <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session" loading="lazy" decoding="async"/>
-    </section>
-
-    <section class="card reveal">
-      <span class="kicker">Services</span>
-      <h2>What you can book.</h2>
-      <ul>
-        <li>In-Home Personal Training</li>
-        <li>Private Gym Training</li>
-        <li>Corrective Exercise &amp; Mobility</li>
-        <li>12-Week Body Transformation</li>
-        <li>Strength &amp; Movement Coaching</li>
-        <li>Nutrition Guidance (Precision Nutrition Level 1)</li>
-      </ul>
-    </section>
-
-    <section class="card reveal" aria-label="FAQ">
-      <span class="kicker">FAQ</span>
-      <h2>Frequently asked questions.</h2>
-
-      <div class="grid">
-        <div class="pill">
-          <strong>Do you travel?</strong>
-          <span>Yes. In-home and private gym sessions are available based on location and schedule.</span>
-        </div>
-
-        <div class="pill">
-          <strong>What areas do you cover?</strong>
-          <span>Manhattan, Brooklyn, and NYC-area private facilities. (Exact availability depends on your building/location.)</span>
-        </div>
-
-        <div class="pill">
-          <strong>What’s your cancellation policy?</strong>
-          <span>24-hour notice is appreciated. Same-day cancellations may be counted as a session (exceptions for emergencies).</span>
-        </div>
-
-        <div class="pill">
-          <strong>Do you offer packages?</strong>
-          <span>Yes. After your strategy call, you’ll receive the best-fit plan and package options based on your schedule and goals.</span>
-        </div>
-
-        <div class="pill">
-          <strong>What happens after the strategy call?</strong>
-          <span>If we’re a fit, you’ll receive intake + waiver + onboarding steps and we’ll schedule your first session.</span>
-        </div>
-
-        <div class="pill">
-          <strong>Do you work with injuries?</strong>
-          <span>Training is joint-friendly and corrective-focused, but medical issues may require physician clearance.</span>
-        </div>
-      </div>
-    </section>
-
     <section class="card reveal" aria-label="Quick Intake">
       <span class="kicker">Quick intake</span>
       <h2>Tell me what you’re working on.</h2>
@@ -808,7 +665,7 @@
       <h2>Free Strategy Call (15–30 Minutes)</h2>
       <p>Book a free 15–30 minute strategy call to discuss goals, movement limitations, and the best path forward.</p>
 
-      <!-- ✅ Primary CTA -->
+      <!-- ✅ Primary CTA (Gold) -->
       <a class="button"
          href="https://calendar.app.google/WmyJvhYomMCH7qZJ8"
          target="_blank"
@@ -816,7 +673,7 @@
         Schedule Free Strategy Call
       </a>
 
-      <!-- ✅ Full Intake Form link added -->
+      <!-- ✅ Secondary CTA (Teal/Blue) -->
       <a class="button secondary"
          href="https://docs.google.com/forms/d/e/1FAIpQLSeR9xFp42n_ql3p2I2ZaJqHUD_JVWZyVEEKVGPkUkEqg9bTuA/viewform"
          target="_blank"
@@ -836,7 +693,7 @@
     © 2026 Detail Fitness NYC — Private Coaching Across NYC
   </footer>
 
-  <!-- ✅ Sticky CTA now includes BOTH links -->
+  <!-- ✅ Sticky CTA includes BOTH links (Gold + Teal/Blue) -->
   <div class="sticky-cta" role="region" aria-label="Sticky actions">
     <div class="wrap">
       <a href="https://calendar.app.google/WmyJvhYomMCH7qZJ8"
