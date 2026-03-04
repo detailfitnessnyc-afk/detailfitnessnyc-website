@@ -9,6 +9,10 @@
   <meta name="description" content="Private executive training across NYC. Corrective exercise, joint-friendly strength training, and a structured 12-week system for busy professionals."/>
   <link rel="icon" href="logo-rectangular.png"/>
 
+  <!-- ✅ Micro upgrade: preconnects (tiny performance win) -->
+  <link rel="preconnect" href="https://calendar.app.google" crossorigin>
+  <link rel="preconnect" href="https://docs.google.com" crossorigin>
+
   <style>
     :root{
       --gold:#c8a96a;
@@ -103,10 +107,11 @@
 
     .hero-bg, .hero-img{ z-index:1; }
 
+    /* ✅ More bottom padding so sticky CTA NEVER covers content */
     .section{
       max-width:var(--max);
       margin:0 auto;
-      padding: 14px 18px 148px;
+      padding: 14px 18px 190px;
     }
 
     .card{
@@ -133,6 +138,15 @@
       font-weight:900;
       text-shadow: 0 16px 40px rgba(0,0,0,.35);
     }
+
+    .microline{
+      margin: 0 auto 10px auto;
+      max-width: 62ch;
+      font-size: clamp(14px, 3.6vw, 18px);
+      line-height: 1.45;
+      color: rgba(255,255,255,.82);
+    }
+    .microline strong{ color: rgba(255,255,255,.92); }
 
     .lead{
       margin:0 auto 0 auto;
@@ -192,6 +206,32 @@
       color: rgba(255,255,255,.82);
     }
 
+    /* ✅ NASM credentials link (Option A) */
+    .cred-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin: 12px auto 0;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.88);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      width: fit-content;
+    }
+    .cred-link:hover{ border-color: rgba(200,169,106,.35); }
+    .cred-sub{
+      text-align:center;
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,.62);
+      line-height:1.4;
+    }
+
     .grid{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -208,6 +248,47 @@
 
     .pill strong{ display:block; font-size:16px; margin-bottom:6px; }
     .pill span{ display:block; font-size:14px; line-height:1.45; color: rgba(255,255,255,.78); }
+
+    /* ===== Testimonials ===== */
+    .testimonials{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .t-card{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding: 16px;
+      background: rgba(255,255,255,.03);
+    }
+    .t-quote{
+      margin:0 0 12px 0;
+      font-size: 15px;
+      line-height: 1.55;
+      color: rgba(255,255,255,.86);
+    }
+    .t-meta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .t-avatar{
+      width:38px; height:38px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.14);
+      object-fit:cover;
+      flex: 0 0 auto;
+    }
+    .t-name{
+      font-weight:800;
+      font-size: 14px;
+    }
+    .t-title{
+      font-size: 12px;
+      color: rgba(255,255,255,.62);
+      margin-top:2px;
+    }
 
     .card-image{
       width:100%;
@@ -243,7 +324,7 @@
     .button:hover{ transform: translateY(-1px); filter: brightness(1.02); }
     .button:active{ transform: translateY(1px) scale(.99); }
 
-    /* ====== MICRO FORM (LEVEL 3) ====== */
+    /* ====== MICRO FORM ====== */
     .form{ margin-top: 10px; display:grid; gap: 12px; }
     .row{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
@@ -413,11 +494,12 @@
     @media (max-width: 860px){
       .grid{ grid-template-columns: 1fr; }
       .row{ grid-template-columns: 1fr; }
+      .testimonials{ grid-template-columns: 1fr; }
     }
 
     @media (max-width: 420px){
       .hero{ height:52vh; min-height:320px; }
-      .section{ padding-top: 10px; padding-bottom: 152px; }
+      .section{ padding-top: 10px; padding-bottom: 200px; }
       .card{ padding: 22px; }
       .toast{ bottom: 98px; }
     }
@@ -432,8 +514,8 @@
 <body>
 
   <header class="hero" aria-label="Detail Fitness NYC">
-    <img class="hero-bg" src="detail-fitness-hero.jpg" alt="" aria-hidden="true"/>
-    <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training"/>
+    <img class="hero-bg" src="detail-fitness-hero.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"/>
+    <img class="hero-img" src="detail-fitness-hero.jpg" alt="Detail Fitness NYC Executive Training" fetchpriority="high" decoding="async"/>
   </header>
 
   <main class="section">
@@ -441,6 +523,7 @@
     <section class="card headline reveal">
       <span class="kicker">NYC Executive Coaching</span>
       <h1>Private Executive Training — NYC</h1>
+      <p class="microline"><strong>In-home and private gym coaching</strong> across Manhattan, Brooklyn, and select NYC private facilities.</p>
       <p class="lead">Strength. Precision. Results. Corrective exercise + structured programming built for busy professionals.</p>
 
       <div class="badges" aria-label="Credentials">
@@ -449,6 +532,14 @@
         <span class="badge">Corrective Exercise Focus</span>
         <span class="badge">12-Week System</span>
       </div>
+
+      <a class="cred-link"
+         href="https://credentials.nasm.org/6c2da776-1131-481f-a9de-43d30b6b1e77"
+         target="_blank"
+         rel="noopener noreferrer">
+        View verified NASM credentials →
+      </a>
+      <div class="cred-sub">Opens a secure NASM credential page in a new tab.</div>
 
       <div class="subline">Scroll down for how it works, services, and to book your free strategy call.</div>
     </section>
@@ -467,7 +558,7 @@
         </div>
         <div class="pill">
           <strong>3) Execute</strong>
-          <span>Measurable checkpoints and an executive-level training system.</span>
+          <span>Measurable checkpoints and an executive-level accountability + results system.</span>
         </div>
       </div>
     </section>
@@ -482,6 +573,82 @@
       </ul>
     </section>
 
+    <section class="card reveal" aria-label="Testimonials">
+      <span class="kicker">Testimonials</span>
+      <h2>What clients say.</h2>
+
+      <div class="testimonials">
+        <div class="t-card">
+          <p class="t-quote">
+            Training finally feels organized. Every session has a purpose, and I’m stronger without beating up my joints.
+            I also feel better during the workweek—less stiffness, more energy.
+          </p>
+          <div class="t-meta">
+            <img class="t-avatar" src="testimonial-1.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
+            <div>
+              <div class="t-name">Client</div>
+              <div class="t-title">NYC Professional</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-card">
+          <p class="t-quote">
+            I came in with tight hips and a cranky shoulder. The coaching is detailed and joint-friendly, but it still pushes me.
+            My posture and strength have improved noticeably.
+          </p>
+          <div class="t-meta">
+            <img class="t-avatar" src="testimonial-2.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
+            <div>
+              <div class="t-name">Client</div>
+              <div class="t-title">Manhattan</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-card">
+          <p class="t-quote">
+            Professional, punctual, and prepared. The plan is always clear, and it’s easy to stay consistent even with a busy schedule.
+            I’m seeing progress without guessing what to do.
+          </p>
+          <div class="t-meta">
+            <img class="t-avatar" src="testimonial-3.jpg" alt="Client avatar" loading="lazy" decoding="async"/>
+            <div>
+              <div class="t-name">Client</div>
+              <div class="t-title">Brooklyn</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="subline" style="text-align:center; margin-top: 14px;">
+        Here’s what 12 weeks of structure + consistency can look like when the plan is built around your schedule.
+      </p>
+    </section>
+
+    <section class="card reveal" id="results" aria-label="12-Week Transformation Results">
+      <span class="kicker">Results</span>
+      <h2>12-Week Transformation Results</h2>
+      <p style="color: rgba(255,255,255,.68); font-size:14px; margin-top:-2px;">
+        Realistic progress built through structure, consistency, and expert coaching.
+      </p>
+
+      <picture>
+        <source srcset="transformation-results-b42739.webp" type="image/webp">
+        <img
+          class="card-image"
+          src="transformation-results-b42739.jpg"
+          alt="12-week executive transformation results collage"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+
+      <div class="subline">
+        Results vary based on starting point, consistency, recovery, and schedule. Your plan is individualized.
+      </div>
+    </section>
+
     <section class="card reveal">
       <span class="kicker">About</span>
       <h2>Coaching built for NYC.</h2>
@@ -489,6 +656,8 @@
         Terrence Powell is a NASM Certified Personal Trainer, Precision Nutrition Level 1 Coach, and a Focus Personal Training Institute graduate.
         With 4+ years of corporate gym coaching and 10+ years of private training across NYC, the focus is simple:
         move better, get stronger, and stay consistent.
+        <br><br>
+        <strong>Trusted by professionals across NYC residential buildings and private facilities.</strong>
       </p>
       <ul>
         <li><strong>Method:</strong> corrective exercise + joint-friendly strength + smart progression</li>
@@ -498,7 +667,7 @@
     </section>
 
     <section class="card reveal">
-      <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session"/>
+      <img class="card-image" src="client-training.jpg" alt="Private Personal Training Session" loading="lazy" decoding="async"/>
     </section>
 
     <section class="card reveal">
@@ -514,6 +683,43 @@
       </ul>
     </section>
 
+    <section class="card reveal" aria-label="FAQ">
+      <span class="kicker">FAQ</span>
+      <h2>Frequently asked questions.</h2>
+
+      <div class="grid">
+        <div class="pill">
+          <strong>Do you travel?</strong>
+          <span>Yes. In-home and private gym sessions are available based on location and schedule.</span>
+        </div>
+
+        <div class="pill">
+          <strong>What areas do you cover?</strong>
+          <span>Manhattan, Brooklyn, and NYC-area private facilities. (Exact availability depends on your building/location.)</span>
+        </div>
+
+        <div class="pill">
+          <strong>What’s your cancellation policy?</strong>
+          <span>24-hour notice is appreciated. Same-day cancellations may be counted as a session (exceptions for emergencies).</span>
+        </div>
+
+        <div class="pill">
+          <strong>Do you offer packages?</strong>
+          <span>Yes. After your strategy call, you’ll receive the best-fit plan and package options based on your schedule and goals.</span>
+        </div>
+
+        <div class="pill">
+          <strong>What happens after the strategy call?</strong>
+          <span>If we’re a fit, you’ll receive intake + waiver + onboarding steps and we’ll schedule your first session.</span>
+        </div>
+
+        <div class="pill">
+          <strong>Do you work with injuries?</strong>
+          <span>Training is joint-friendly and corrective-focused, but medical issues may require physician clearance.</span>
+        </div>
+      </div>
+    </section>
+
     <section class="card reveal" aria-label="Quick Intake">
       <span class="kicker">Quick intake</span>
       <h2>Tell me what you’re working on.</h2>
@@ -523,11 +729,11 @@
         <div class="row">
           <div>
             <label for="name">Full name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required />
+            <input id="name" name="name" type="text" inputmode="text" autocomplete="name" placeholder="Your name" required />
           </div>
           <div>
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@email.com" required />
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
           </div>
         </div>
 
@@ -536,31 +742,29 @@
             <label for="goal">Primary goal</label>
             <select id="goal" name="goal" required>
               <option value="" selected disabled>Select one</option>
-              <option>Strength + Muscle</option>
-              <option>Fat Loss / Body Recomp</option>
-              <option>Posture + Mobility</option>
-              <option>Pain-Free Training / Joint-Friendly</option>
-              <option>Performance / Athletic</option>
-              <option>General Fitness + Consistency</option>
+              <option>Fat loss</option>
+              <option>Strength</option>
+              <option>Hypertrophy</option>
+              <option>Corrective exercise</option>
+              <option>General fitness</option>
             </select>
           </div>
 
           <div>
-            <label for="availability">Preferred time</label>
+            <label for="availability">Preferred training time</label>
             <select id="availability" name="availability" required>
               <option value="" selected disabled>Select one</option>
-              <option>Mornings</option>
+              <option>Early morning</option>
               <option>Midday</option>
-              <option>Evenings</option>
-              <option>Weekends</option>
+              <option>Evening</option>
               <option>Flexible</option>
             </select>
           </div>
         </div>
 
         <div>
-          <label for="notes">Any limitations / notes (optional)</label>
-          <textarea id="notes" name="notes" placeholder="e.g., tight hips, low back, shoulder discomfort, busy travel schedule..."></textarea>
+          <label for="notes">Any limitations, injuries, or notes? (optional)</label>
+          <textarea id="notes" name="notes" placeholder="e.g., tight hips, low back, shoulder discomfort, travel schedule..."></textarea>
         </div>
 
         <div class="form-actions">
@@ -637,27 +841,16 @@
       cards.forEach((c) => io.observe(c));
     }
 
-    // ===== LEVEL 3: Lead capture + SEND TO GOOGLE SHEETS (via Google Form) =====
     const CAL_LINK = "https://calendar.app.google/WmyJvhYomMCH7qZJ8";
 
-    /**
-     * STEP A (YOU PASTE):
-     * 1) From your Google Form prefilled link, we can build:
-     *    GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/<FORM_ID>/formResponse"
-     */
-    const GOOGLE_FORM_ACTION = "PASTE_YOUR_FORM_RESPONSE_URL_HERE";
+    const GOOGLE_FORM_ACTION =
+      "https://docs.google.com/forms/d/e/1FAIpQLSePNo6kGB4obeQp8ALzfGE2T-9vAmcRFbW3GmRdUc8D1NaUjw/formResponse";
 
-    /**
-     * STEP B (YOU PASTE):
-     * From your prefilled link you'll see keys like:
-     *   entry.123456789=John
-     * Copy just the "entry.123456789" part into these:
-     */
-    const ENTRY_NAME         = "entry.PASTE_ID_FOR_NAME";
-    const ENTRY_EMAIL        = "entry.PASTE_ID_FOR_EMAIL";
-    const ENTRY_GOAL         = "entry.PASTE_ID_FOR_GOAL";
-    const ENTRY_AVAILABILITY = "entry.PASTE_ID_FOR_AVAILABILITY";
-    const ENTRY_NOTES        = "entry.PASTE_ID_FOR_NOTES";
+    const ENTRY_NAME         = "entry.1267692524";
+    const ENTRY_EMAIL        = "entry.1910906448";
+    const ENTRY_GOAL         = "entry.1317633299";
+    const ENTRY_AVAILABILITY = "entry.1294655333";
+    const ENTRY_NOTES        = "entry.1380163210";
 
     const toast = document.getElementById("toast");
     const leadForm = document.getElementById("leadForm");
@@ -701,7 +894,7 @@
           mode: "no-cors",
           body: fd
         });
-        return true; // no-cors won't confirm, but it sends.
+        return true;
       }catch(e){
         return false;
       }
@@ -725,7 +918,7 @@ Time: ${timestamp}
 Name: ${name}
 Email: ${email}
 Goal: ${goal}
-Preferred time: ${availability}
+Preferred training time: ${availability}
 Notes: ${notes || "N/A"}`;
 
       const copied = await copyToClipboard(summary);
