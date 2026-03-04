@@ -324,6 +324,15 @@
     .button:hover{ transform: translateY(-1px); filter: brightness(1.02); }
     .button:active{ transform: translateY(1px) scale(.99); }
 
+    /* ✅ Secondary button style (for Intake link) */
+    .button.secondary{
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: none;
+    }
+    .button.secondary:hover{ border-color: rgba(200,169,106,.35); filter:none; }
+
     /* ====== MICRO FORM ====== */
     .form{ margin-top: 10px; display:grid; gap: 12px; }
     .row{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -439,6 +448,9 @@
       margin:0 auto;
       display:flex;
       justify-content:center;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
     }
 
     .sticky-cta a{
@@ -460,10 +472,20 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    .sticky-cta a.secondary{
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: none;
+      font-size: 16px;
+      padding:14px 14px;
+    }
+    .sticky-cta a.secondary:hover{ border-color: rgba(200,169,106,.35); filter:none; }
+
     .sticky-cta .hint{
       display:block;
       text-align:center;
-      margin-top:8px;
+      margin-top:2px;
       font-size:12px;
       color: rgba(255,255,255,.60);
     }
@@ -471,7 +493,7 @@
     #backToTop{
       position:fixed;
       right:18px;
-      bottom:110px;
+      bottom:170px;
       width:52px;
       height:52px;
       border-radius:50%;
@@ -499,9 +521,10 @@
 
     @media (max-width: 420px){
       .hero{ height:52vh; min-height:320px; }
-      .section{ padding-top: 10px; padding-bottom: 200px; }
+      .section{ padding-top: 10px; padding-bottom: 220px; }
       .card{ padding: 22px; }
-      .toast{ bottom: 98px; }
+      .toast{ bottom: 120px; }
+      #backToTop{ bottom: 210px; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -784,13 +807,27 @@
       <span class="kicker">Next step</span>
       <h2>Free Strategy Call (15–30 Minutes)</h2>
       <p>Book a free 15–30 minute strategy call to discuss goals, movement limitations, and the best path forward.</p>
+
+      <!-- ✅ Primary CTA -->
       <a class="button"
          href="https://calendar.app.google/WmyJvhYomMCH7qZJ8"
          target="_blank"
          rel="noopener noreferrer">
         Schedule Free Strategy Call
       </a>
-      <div class="subline">No pressure. Clear next steps. Serious inquiries only.</div>
+
+      <!-- ✅ Full Intake Form link added -->
+      <a class="button secondary"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSeR9xFp42n_ql3p2I2ZaJqHUD_JVWZyVEEKVGPkUkEqg9bTuA/viewform"
+         target="_blank"
+         rel="noopener noreferrer">
+        Complete Full Client Intake Form
+      </a>
+
+      <div class="subline" style="text-align:center; margin-top: 12px;">
+        No pressure. Clear next steps. Serious inquiries only.
+        <br/>Preferred: complete the full intake before your call so we can use the time efficiently.
+      </div>
     </section>
 
   </main>
@@ -799,15 +836,23 @@
     © 2026 Detail Fitness NYC — Private Coaching Across NYC
   </footer>
 
-  <div class="sticky-cta" role="region" aria-label="Free Strategy Call Sticky Button">
+  <!-- ✅ Sticky CTA now includes BOTH links -->
+  <div class="sticky-cta" role="region" aria-label="Sticky actions">
     <div class="wrap">
       <a href="https://calendar.app.google/WmyJvhYomMCH7qZJ8"
          target="_blank"
          rel="noopener noreferrer">
         Free Strategy Call (15–30 Minutes)
       </a>
+
+      <a class="secondary"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSeR9xFp42n_ql3p2I2ZaJqHUD_JVWZyVEEKVGPkUkEqg9bTuA/viewform"
+         target="_blank"
+         rel="noopener noreferrer">
+        Full Intake Form
+      </a>
     </div>
-    <span class="hint">Tap to book anytime • Fast scheduling via Google Calendar</span>
+    <span class="hint">Book your call • Or complete the full intake now</span>
   </div>
 
   <button id="backToTop" aria-label="Back to top">↑</button>
