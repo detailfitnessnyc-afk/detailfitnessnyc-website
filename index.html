@@ -534,33 +534,33 @@
         <div class="row">
           <div>
             <label for="goal">Primary goal</label>
-            <!-- MUST MATCH YOUR GOOGLE FORM OPTIONS -->
             <select id="goal" name="goal" required>
               <option value="" selected disabled>Select one</option>
-              <option>Fat loss</option>
-              <option>Strength</option>
-              <option>Hypertrophy</option>
-              <option>Corrective exercise</option>
-              <option>General fitness</option>
+              <option>Strength + Muscle</option>
+              <option>Fat Loss / Body Recomp</option>
+              <option>Posture + Mobility</option>
+              <option>Pain-Free Training / Joint-Friendly</option>
+              <option>Performance / Athletic</option>
+              <option>General Fitness + Consistency</option>
             </select>
           </div>
 
           <div>
-            <label for="availability">Preferred training time</label>
-            <!-- MUST MATCH YOUR GOOGLE FORM OPTIONS -->
+            <label for="availability">Preferred time</label>
             <select id="availability" name="availability" required>
               <option value="" selected disabled>Select one</option>
-              <option>Early morning</option>
+              <option>Mornings</option>
               <option>Midday</option>
-              <option>Evening</option>
+              <option>Evenings</option>
+              <option>Weekends</option>
               <option>Flexible</option>
             </select>
           </div>
         </div>
 
         <div>
-          <label for="notes">Any limitations, injuries, or notes? (optional)</label>
-          <textarea id="notes" name="notes" placeholder="e.g., tight hips, low back, shoulder discomfort, travel schedule..."></textarea>
+          <label for="notes">Any limitations / notes (optional)</label>
+          <textarea id="notes" name="notes" placeholder="e.g., tight hips, low back, shoulder discomfort, busy travel schedule..."></textarea>
         </div>
 
         <div class="form-actions">
@@ -640,17 +640,24 @@
     // ===== LEVEL 3: Lead capture + SEND TO GOOGLE SHEETS (via Google Form) =====
     const CAL_LINK = "https://calendar.app.google/WmyJvhYomMCH7qZJ8";
 
-    // ✅ FROM YOUR FORM ID:
-    // https://docs.google.com/forms/d/e/<FORM_ID>/formResponse
-    const GOOGLE_FORM_ACTION =
-      "https://docs.google.com/forms/d/e/1FAIpQLSePNo6kGB4obeQp8ALzfGE2T-9vAmcRFbW3GmRdUc8D1NaUjw/formResponse";
+    /**
+     * STEP A (YOU PASTE):
+     * 1) From your Google Form prefilled link, we can build:
+     *    GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/<FORM_ID>/formResponse"
+     */
+    const GOOGLE_FORM_ACTION = "PASTE_YOUR_FORM_RESPONSE_URL_HERE";
 
-    // ✅ ENTRY IDs (FROM YOUR PREFILLED LINK)
-    const ENTRY_NAME         = "entry.1267692524";
-    const ENTRY_EMAIL        = "entry.1910906448";
-    const ENTRY_GOAL         = "entry.1317633299";
-    const ENTRY_AVAILABILITY = "entry.1294655333";
-    const ENTRY_NOTES        = "entry.1380163210";
+    /**
+     * STEP B (YOU PASTE):
+     * From your prefilled link you'll see keys like:
+     *   entry.123456789=John
+     * Copy just the "entry.123456789" part into these:
+     */
+    const ENTRY_NAME         = "entry.PASTE_ID_FOR_NAME";
+    const ENTRY_EMAIL        = "entry.PASTE_ID_FOR_EMAIL";
+    const ENTRY_GOAL         = "entry.PASTE_ID_FOR_GOAL";
+    const ENTRY_AVAILABILITY = "entry.PASTE_ID_FOR_AVAILABILITY";
+    const ENTRY_NOTES        = "entry.PASTE_ID_FOR_NOTES";
 
     const toast = document.getElementById("toast");
     const leadForm = document.getElementById("leadForm");
@@ -694,7 +701,7 @@
           mode: "no-cors",
           body: fd
         });
-        return true; // no-cors won't confirm, but it sends
+        return true; // no-cors won't confirm, but it sends.
       }catch(e){
         return false;
       }
@@ -718,7 +725,7 @@ Time: ${timestamp}
 Name: ${name}
 Email: ${email}
 Goal: ${goal}
-Preferred training time: ${availability}
+Preferred time: ${availability}
 Notes: ${notes || "N/A"}`;
 
       const copied = await copyToClipboard(summary);
